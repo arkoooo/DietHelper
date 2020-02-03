@@ -2,8 +2,7 @@ package com.dietHelper;
 
 public class Patient {
      private String name, surname;
-     private int weight, gender, age, height, activity, calories, bmr, insulin, glucoze;
-     boolean peanuts, lactose, diabetes, hipoglikemia, hiperinsulinemia, insulinResistance, vegan, vegetarian;
+     private int weight, gender, age, height, activity, calories, bmr, insulin, glucoze, peanuts, lactose, diabetes, hipoglikemia, hiperinsulinemia, insulinResistance, vegan, vegetarian;
      int[] likedProducts, unLikedProducts;
 
     public Patient() {
@@ -81,67 +80,83 @@ public class Patient {
         this.bmr = bmr;
     }
 
-    public boolean isPeanuts() {
+    public int getInsulin() {
+        return insulin;
+    }
+
+    public void setInsulin(int insulin) {
+        this.insulin = insulin;
+    }
+
+    public int getGlucoze() {
+        return glucoze;
+    }
+
+    public void setGlucoze(int glucoze) {
+        this.glucoze = glucoze;
+    }
+
+    public int getPeanuts() {
         return peanuts;
     }
 
-    public void setPeanuts(boolean peanuts) {
+    public void setPeanuts(int peanuts) {
         this.peanuts = peanuts;
     }
 
-    public boolean isLactose() {
+    public int getLactose() {
         return lactose;
     }
 
-    public void setLactose(boolean lactose) {
+    public void setLactose(int lactose) {
         this.lactose = lactose;
     }
 
-    public boolean isDiabetes() {
+    public int getDiabetes() {
         return diabetes;
     }
 
-    public void setDiabetes(boolean diabetes) {
+    public void setDiabetes(int diabetes) {
         this.diabetes = diabetes;
     }
 
-    public boolean isHipoglikemia() {
+    public int getHipoglikemia() {
         return hipoglikemia;
     }
 
-    public void setHipoglikemia(boolean hipoglikemia) {
+    public void setHipoglikemia(int hipoglikemia) {
         this.hipoglikemia = hipoglikemia;
     }
 
-    public boolean isHiperinsulinemia() {
+    public int getHiperinsulinemia() {
         return hiperinsulinemia;
     }
 
-    public void setHiperinsulinemia(boolean hiperinsulinemia) {
+    public void setHiperinsulinemia(int hiperinsulinemia) {
         this.hiperinsulinemia = hiperinsulinemia;
     }
 
-    public boolean isInsulinResistance() {
+    public int getInsulinResistance() {
         return insulinResistance;
     }
 
-    public void setInsulinResistance(boolean insulinResistance) {
+    public void setInsulinResistance(int insulinResistance) {
         this.insulinResistance = insulinResistance;
     }
 
-    public boolean isVegan() {
+    public int getVegan() {
         return vegan;
     }
 
-    public void setVegan(boolean vegan) {
+    public void setVegan(int vegan) {
         this.vegan = vegan;
     }
 
-    public boolean isVegetarian() {
+    public int getVegetarian() {
         return vegetarian;
     }
 
-    public void setVegetarian(boolean vegetarian) {
+    public void setVegetarian(int vegetarian) {
         this.vegetarian = vegetarian;
     }
 
@@ -161,25 +176,7 @@ public class Patient {
         this.unLikedProducts = unLikedProducts;
     }
 
-    public int getInsulin() {
-        return insulin;
-    }
-
-    public void setInsulin(int insulin) {
-        this.insulin = insulin;
-    }
-
-    public int getGlucoze() {
-        return glucoze;
-    }
-
-    public void setGlucoze(int glucoze) {
-        this.glucoze = glucoze;
-    }
-
-
-
-    /** Calculating BMR according to the Mifflin-St Jeor formula */
+    //Calculating BMR according to the Mifflin-St Jeor formula
     public void calculateBmr(){
         switch(getGender()){
             case 1:
@@ -195,7 +192,7 @@ public class Patient {
 
     public void calculateTotalMetabolism(){
 
-        /** Calculation of total calories by activity */
+        //Calculation of total calories depends on activity *
         switch(getActivity()){
             case 1:
                 setCalories((int) (bmr * 1.2));
@@ -216,6 +213,8 @@ public class Patient {
                 setCalories(0);
         }
     }
+
+    //Change int number to a word representing gender
     public String changeGender(){
         String changedGender;
         switch(getGender()){

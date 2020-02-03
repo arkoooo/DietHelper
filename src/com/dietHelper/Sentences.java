@@ -5,26 +5,28 @@ public class Sentences {
         System.out.println("Wpisz poprawną wartość!");
     }
     public static void hello(){
-        System.out.println("Witaj w programie DietHelper, który pomoże w ustaleniu Twojej diety! \n" +
-                "1. Menu pacjenta \n" +
-                "2. Menu lekarza \n" +
-                "Wpisz numer:");
+        System.out.println("Witaj w programie DietHelper, który pomoże w ustaleniu Twojej diety!");
     }
+    public static void mainMenu(){
+        System.out.println(
+                "1. Menu pacjenta \n" +
+                "2. Menu lekarza  \n" +
+                "3. Wyjście z programu \n" +
+                "Wpisz numer: "); }
     public static void whatToDoDoctor(){
         System.out.println("Zarządzaj: \n" +
                 "1. Listą pacjentów \n" +
                 "2. Listą posiłków i produktów \n" +
                 "3. Powrót do poprzedniego menu");
     }
-    public static void patientAdministrationMenu(){
+    public static void patientAdmMenuSentence(){
         System.out.println("Wybierz co chcesz zrobić: \n" +
                 "1. Dodaj pacjenta \n" +
-                "2. Wywiad z pacjentem \n" +
-                "3. Dodaj wyniki pacjenta \n" +
-                "4. Przeglądaj listę pacjentów \n" +
-                "5. Powrót do poprzedniego menu");
+                "2. Dodaj wyniki pacjenta \n" +
+                "3. Przeglądaj listę pacjentów \n" +
+                "4. Powrót do poprzedniego menu");
     }
-    public static void dietAdministrationMenu(){
+    public static void dietAdmMenuSentence(){
         System.out.println("Wybierz co chcesz zrobić: \n" +
                 "1. Dodaj produkt \n" +
                 "2. Dodaj posiłek \n" +
@@ -59,5 +61,14 @@ public class Sentences {
                 "4 - wysoka aktywność, praca fizyczna i 3-4 treningi w tygodniu \n" +
                 "5 - bardzo wysoka aktywność, sportowcy zawodowi, osoby trenujące codzienie");
     }
-
+    public static boolean isThatGoodChoice(int number, int lowRange, int highRange){
+        if (number >= lowRange && number <= highRange){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    public static void goodbye(){
+        System.out.println("Do zobaczenia!");
+    }
 }
