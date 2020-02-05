@@ -2,12 +2,19 @@ package com.dietHelper;
 
 public class Patient {
      private String name, surname;
-     private int weight, gender, age, height, activity, calories, bmr, insulin, glucoze, peanuts, lactose, diabetes, hipoglikemia, hiperinsulinemia, insulinResistance, vegan, vegetarian;
-     int[] likedProducts, unLikedProducts;
+     private int id, weight, gender, age, height, activity, calories, bmr, insulin, glycemia, peanuts, lactose, diabetes, vegan, vegetarian;
+     int[] likedProducts = new int[100];
+     int[] unlikedProducts = new int [100];
 
     public Patient() {
     }
 
+    public int getId() { return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     public String getName() {
         return name;
     }
@@ -88,12 +95,12 @@ public class Patient {
         this.insulin = insulin;
     }
 
-    public int getGlucoze() {
-        return glucoze;
+    public int getGlycemia() {
+        return glycemia;
     }
 
-    public void setGlucoze(int glucoze) {
-        this.glucoze = glucoze;
+    public void setGlycemia(int glycemia) {
+        this.glycemia = glycemia;
     }
 
     public int getPeanuts() {
@@ -120,30 +127,6 @@ public class Patient {
         this.diabetes = diabetes;
     }
 
-    public int getHipoglikemia() {
-        return hipoglikemia;
-    }
-
-    public void setHipoglikemia(int hipoglikemia) {
-        this.hipoglikemia = hipoglikemia;
-    }
-
-    public int getHiperinsulinemia() {
-        return hiperinsulinemia;
-    }
-
-    public void setHiperinsulinemia(int hiperinsulinemia) {
-        this.hiperinsulinemia = hiperinsulinemia;
-    }
-
-    public int getInsulinResistance() {
-        return insulinResistance;
-    }
-
-    public void setInsulinResistance(int insulinResistance) {
-        this.insulinResistance = insulinResistance;
-    }
-
     public int getVegan() {
         return vegan;
     }
@@ -158,22 +141,6 @@ public class Patient {
 
     public void setVegetarian(int vegetarian) {
         this.vegetarian = vegetarian;
-    }
-
-    public int[] getLikedProducts() {
-        return likedProducts;
-    }
-
-    public void setLikedProducts(int[] likedProducts) {
-        this.likedProducts = likedProducts;
-    }
-
-    public int[] getUnLikedProducts() {
-        return unLikedProducts;
-    }
-
-    public void setUnLikedProducts(int[] unLikedProducts) {
-        this.unLikedProducts = unLikedProducts;
     }
 
     //Calculating BMR according to the Mifflin-St Jeor formula
@@ -228,6 +195,22 @@ public class Patient {
                 changedGender = "Błąd";
         }
         return changedGender;
+    }
+
+    public double homaIR(){
+        double homaIR;
+        homaIR = (getInsulin()* getGlycemia()) / 400.0;
+        return homaIR;
+    }
+    public boolean checkHomaIR(){
+        boolean badHomaIR;
+        if(homaIR() >= 2.5){
+            setDiabetes(1);
+            badHomaIR = true;
+        }else{
+            badHomaIR = false;
+        }
+        return badHomaIR;
     }
 
 }

@@ -17,24 +17,25 @@ public class Sentences {
         System.out.println("Zarządzaj: \n" +
                 "1. Listą pacjentów \n" +
                 "2. Listą posiłków i produktów \n" +
-                "3. Powrót do poprzedniego menu");
+                "3. Powrót do poprzedniego menu\n" +
+                "Wpisz numer: ");
     }
     public static void patientAdmMenuSentence(){
         System.out.println("Wybierz co chcesz zrobić: \n" +
                 "1. Dodaj pacjenta \n" +
                 "2. Dodaj wyniki pacjenta \n" +
-                "3. Przeglądaj listę pacjentów \n" +
-                "4. Powrót do poprzedniego menu");
-    }
+                "3. Przeglądaj i edytuj listę pacjentów \n" +
+                "4. Powrót do poprzedniego menu \n" +
+                "Wpisz numer: "); }
     public static void dietAdmMenuSentence(){
         System.out.println("Wybierz co chcesz zrobić: \n" +
                 "1. Dodaj produkt \n" +
                 "2. Dodaj posiłek \n" +
                 "3. Przeglądaj produkty \n" +
                 "4. Przeglądaj posiłki \n" +
-                "5. Ustal dietę \n" +
-                "6. Powrót do poprzedniego menu");
-    }
+                "5. Ustal dietę pacjentowi \n" +
+                "6. Powrót do poprzedniego menu \n" +
+                "Wpisz numer: "); }
     public static void typeName(){
         System.out.println("Podaj imię pacjenta:");
     }
@@ -67,8 +68,5 @@ public class Sentences {
         }else{
             return false;
         }
-    }
-    public static void goodbye(){
-        System.out.println("Do zobaczenia!");
     }
 }

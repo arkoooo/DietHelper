@@ -7,13 +7,12 @@ import static com.dietHelper.Sentences.*;
 public class Main {
     static Scanner scanner = new Scanner(System.in);
     public static int choice;
+    public static boolean goodChoice = false;
     public static boolean isThatInt = false;
     public static boolean isNeededGreetings = true;
 
     public static void main(String[] args) {
-            do{
                 mainMenu();
-            } while(!isThatInt);
     }
         public static void mainMenu() {
             do{
@@ -27,29 +26,23 @@ public class Main {
                     choice = scanner.nextInt();
                     isThatInt = true;
                 }else{
+                    choice = 0; // If user go back from another menu, then choice will be defined and when user type ex. char, then choice will have old value, so there is reset.
                     wrongChoice();
-                    choice = 0;
                     isNeededGreetings = false; //Marking that greeting it's no longer needed
                 }
                 scanner.nextLine();
-            }while(!isThatGoodChoice(choice,1,3) && isThatInt); //Menu will be displayed until user type correct input
+            }while(!isThatGoodChoice(choice,1,3)); //Menu will be displayed until user type correct input
 
             switch (choice){
                 case 1:
                     PatientMenu.patientMenu();
-                    isThatInt = true;
-                    choice = 0;
+                    //isThatInt = true;
                     break;
                 case 2:
                     DoctorMenu.doctorFirstMenu();
-                    isThatInt = true;
-                    choice = 0;
+                    //isThatInt = true;
                     break;
                 case 3:
-                    break;
-                default:
-                    isThatInt = false;
-                    choice = 0;
                     break;
             }
         }

@@ -1,12 +1,15 @@
 package com.dietHelper;
 
-import static com.dietHelper.Main.scanner;
+import static com.dietHelper.Main.*;
 import static com.dietHelper.Sentences.*;
 
 public class Add {
+    public static int numberOfPatients = 0;
     public static void newPatient(){
         Patient patient = new Patient();
-        boolean goodChoice = false;
+
+        numberOfPatients++;
+        patient.setId(numberOfPatients);
 
         typeName();
         patient.setName(scanner.nextLine());
@@ -160,12 +163,12 @@ public class Add {
         goodChoice = false;
 
         do {
-            System.out.println("Czy ma stwierdzoną insulinooporność/hiperinsulinemię/hipoglikemię " +
-                    "reaktywną/ cukrzycę?");
+            System.out.println("Czy ma stwierdzoną insulinooporność(1)/hiperinsulinemię(2)/hipoglikemię " +
+                    "reaktywną(3)/cukrzycę(4)? Wpisz odpowiednią cyfrę jeżeli tak, 0 jeżeli brak.");
             if(scanner.hasNextInt()) {
                 patient.setDiabetes(scanner.nextInt());
                 scanner.nextLine();
-                if(patient.getDiabetes() == 1 || patient.getDiabetes() == 0){
+                if(patient.getDiabetes() >= 0 && patient.getDiabetes() < 5){
                     goodChoice = true;
                 }else{
                     wrongChoice();
@@ -178,6 +181,55 @@ public class Add {
 
         // Reset good choice value to default
         goodChoice = false;
+
+        if(patient.getDiabetes() > 0){
+            System.out.println("Jeżeli pacjent ma stwierdzone problemy z gospodarką insulinową, konieczne jest wypełnienie wywiadu pacjenta " +
+                    "w którym zawarte będą dokładne wyniki glukozy oraz insuliny we krwi po obciążeniu glukozą");
+        }
+
+        //The result of insulin and glucose will be taken only if the problems are not officially identified. Otherwise, the doctor fills in the patient's results
+        if(patient.getDiabetes() == 0) {
+            do {
+                System.out.println("Podaj wynik insuliny na czczo: [mU/ml]");
+                if (scanner.hasNextInt()) {
+                    patient.setInsulin(scanner.nextInt());
+                    scanner.nextLine();
+                    if (patient.getInsulin() > 0) {
+                        goodChoice = true;
+                    } else {
+                        wrongChoice();
+                    }
+                } else {
+                    scanner.nextLine();
+                    wrongChoice();
+                }
+            } while (!goodChoice);
+        }
+
+        // Reset good choice value to default
+        goodChoice = false;
+
+        if(patient.getDiabetes() == 0) {
+            do {
+                System.out.println("Podaj wynik glikemii na czczo [mmol/l]:");
+                if (scanner.hasNextInt()) {
+                    patient.setGlycemia(scanner.nextInt());
+                    scanner.nextLine();
+                    if (patient.getGlycemia() > 0) {
+                        goodChoice = true;
+                    } else {
+                        wrongChoice();
+                    }
+                } else {
+                    scanner.nextLine();
+                    wrongChoice();
+                }
+            } while (!goodChoice);
+        }
+
+        // Reset good choice value to default
+        goodChoice = false;
+
 
         do {
             System.out.println("Czy jest weganem?");
@@ -221,6 +273,8 @@ public class Add {
         // Reset good choice value to default
         goodChoice = false;
 
+
+    /**
         do {
             System.out.println("Wpisz ulubione produkty:");
             goodChoice = true;
@@ -236,9 +290,22 @@ public class Add {
 
         // Reset good choice value to default
         goodChoice = false;
+    **/
+    patient.homaIR();
+    patient.checkHomaIR();
+
+    if(patient.getDiabetes() > 0){
+        if(patient.checkHomaIR()){
+            System.out.println("Pacjent ma podejrzenie insulinooporności - wykryto nieprawidłowy wskaźnik Homa-IR: " + patient.homaIR() + ". Zaleca się wykonanie badań pod " +
+                    "obciążeniem glukozą. Wyniki można wpisać w sekcji 'Wyniki pacjenta'");
+        }else {
+            System.out.println("Pacjent ma problemy z gospodarką insulinową. Zaleca się wykonanie badań pod obciążeniem glukozą. " +
+                    "Wyniki można wpisać w sekcji 'Wyniki pacjenta'");
+        }
+    }
 
         //Go back to doctor menu
-        DoctorMenu.choice = 0;
+        // DoctorMenu.choice = 0;
         DoctorMenu.doctorFirstMenu();
     }
     public static void newMeal() {
