@@ -1,20 +1,22 @@
 package com.dietHelper;
 
+import java.util.LinkedList;
+import java.util.List;
+
+import static com.dietHelper.Add.patientList;
 import static com.dietHelper.DoctorMenu.patientAdmMenu;
 import static com.dietHelper.Main.*;
 import static com.dietHelper.Sentences.*;
 import static com.dietHelper.TypeOfResults.*;
 
 public class PatientResults {
-    static int numberOfGlucoseResults = 0, numberOfInsulinResults = 0;
+    static List<Result> resultsList = new LinkedList<>();
+    public static int selectedPatient = 0;
+    static int numberOfResults;
+
      public static void resultMenu() {
         do {
-            System.out.println("Wpisz wynik pacjenta: \n" +
-                    "1. Wybierz pacjenta \n" +
-                    "2. Glukoza \n" +
-                    "3. Insulina \n" +
-                    "4. Powrót do poprzedniego menu \n" +
-                    "Wpisz numer:");
+            patientResultsMenu();
             if(scanner.hasNextInt()) {
                 choice = scanner.nextInt();
                 scanner.nextLine();
@@ -32,12 +34,17 @@ public class PatientResults {
 
         switch(choice){
             case 1:
-                System.out.println("Aktualnie wybrany pacjent: ID:" + "Imię: " + "Nazwisko: ");
+                actualPatientSentence();
                 System.out.println("Wpisz numer pacjenta, aby zmienić obecny wybór na inny.");
+                for (Patient patient: patientList ){
+                    System.out.println("ID: " + patient.getId() + ". Imię: " + patient.getName() + " Nazwisko: "
+                            + patient.getSurname());
+                }
                 break;
             case 2:
-                numberOfGlucoseResults++;
-                Result glycemia = new Result(numberOfGlucoseResults, 1, GLYCEMIA);
+                numberOfResults++;
+                Result glycemia = new Result(numberOfResults, selectedPatient, GLYCEMIA);
+                resultsList.add(glycemia);
                 System.out.println("Podaj glikemię na czczo:");
                 if (scanner.hasNextInt()) {
                     glycemia.setFirstResult(scanner.nextInt());
@@ -79,9 +86,10 @@ public class PatientResults {
                 }
                 break;
             case 3:
-                numberOfInsulinResults++;
-                Result insulin = new Result(numberOfInsulinResults, 1,INSULIN);
-                System.out.println("Podaj glikemię na czczo:");
+                numberOfResults++;
+                Result insulin = new Result(numberOfResults, selectedPatient,INSULIN);
+                resultsList.add(insulin);
+                System.out.println("Podaj insulinę na czczo:");
                 if (scanner.hasNextInt()) {
                     insulin.setFirstResult(scanner.nextInt());
                     scanner.nextLine();
@@ -94,7 +102,7 @@ public class PatientResults {
                     scanner.nextLine();
                     wrongChoice();
                 }
-                System.out.println("Podaj glikemię 1h po przyjęciu glukozy");
+                System.out.println("Podaj insulinę 1h po przyjęciu glukozy");
                 if (scanner.hasNextInt()) {
                     insulin.setSecondResult(scanner.nextInt());
                     scanner.nextLine();
@@ -107,7 +115,7 @@ public class PatientResults {
                     scanner.nextLine();
                     wrongChoice();
                 }
-                System.out.println("Podaj glikemię 2h po przyjęciu glukozy");
+                System.out.println("Podaj insulinę 2h po przyjęciu glukozy");
                 if (scanner.hasNextInt()) {
                     insulin.setThirdResult(scanner.nextInt());
                     scanner.nextLine();
@@ -126,4 +134,5 @@ public class PatientResults {
                 break;
         }
     }
+
 }

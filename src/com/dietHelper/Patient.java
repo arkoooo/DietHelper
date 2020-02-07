@@ -1,8 +1,10 @@
 package com.dietHelper;
 
+import java.util.Calendar;
+
 public class Patient {
      private String name, surname;
-     private int id, weight, gender, age, height, activity, calories, bmr, insulin, glycemia, peanuts, lactose, diabetes, vegan, vegetarian;
+     private int id, weight, gender, year, height, activity, calories, bmr, insulin, glycemia, peanuts, lactose, diabetes, vegan, vegetarian;
      int[] likedProducts = new int[100];
      int[] unlikedProducts = new int [100];
 
@@ -47,12 +49,12 @@ public class Patient {
         this.gender = gender;
     }
 
-    public int getAge() {
-        return age;
+    public int getYear() {
+        return year;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setYear(int year) {
+        this.year = year;
     }
 
     public int getHeight() {
@@ -211,6 +213,10 @@ public class Patient {
             badHomaIR = false;
         }
         return badHomaIR;
+    }
+
+    public int getAge(){
+        return Calendar.getInstance().get(Calendar.YEAR)-getYear();
     }
 
 }

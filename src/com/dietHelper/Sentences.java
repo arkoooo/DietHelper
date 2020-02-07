@@ -1,5 +1,7 @@
 package com.dietHelper;
 
+import static com.dietHelper.Add.patientList;
+
 public class Sentences {
     public static void wrongChoice(){
         System.out.println("Wpisz poprawną wartość!");
@@ -36,24 +38,6 @@ public class Sentences {
                 "5. Ustal dietę pacjentowi \n" +
                 "6. Powrót do poprzedniego menu \n" +
                 "Wpisz numer: "); }
-    public static void typeName(){
-        System.out.println("Podaj imię pacjenta:");
-    }
-    public static void typeSurname(){
-        System.out.println("Podaj nazwisko pacjenta:");
-    }
-    public static void typeGender(){
-        System.out.println("Podaj płeć pacjenta (Mężczyzna - 1, Kobieta - 2)");
-    }
-    public static void typeAge(){
-        System.out.println("Podaj wiek pacjenta:");
-    }
-    public static void typeWeight(){
-        System.out.println("Podaj wagę pacjenta:");
-    }
-    public static void typeHeight(){
-        System.out.println("Podaj wzrost pacjenta (w centymetrach):");
-    }
     public static void typeActivity(){
         System.out.println("Podaj aktywność pacjenta: \n"+
                 "1 - brak aktywności, praca siedząca \n" +
@@ -68,5 +52,37 @@ public class Sentences {
         }else{
             return false;
         }
+    }
+    static void patientResultsMenu() {
+        System.out.println("Wpisz wynik pacjenta: \n" +
+                "1. Wybierz pacjenta \n" +
+                "2. Glukoza \n" +
+                "3. Insulina \n" +
+                "4. Powrót do poprzedniego menu \n" +
+                "Wpisz numer:");
+    }
+    static void actualPatientSentence() {
+        System.out.println("Aktualnie wybrany pacjent: ID: " + patientList.get(PatientResults.selectedPatient-1).getId() + ". Imię: " + patientList.get(PatientResults.selectedPatient-1).getName() + " Nazwisko: "
+                + patientList.get(PatientResults.selectedPatient-1).getSurname());
+    }
+
+    static void whatDoYouWantToEdit() {
+        System.out.println("Co chcesz edytować?" +
+                "1. Imię pacjenta \n" +
+                "2. Nazwisko pacjenta \n" +
+                "3. Rok urodzenia pacjenta \n" +
+                "4. Wagę pacjenta \n" +
+                "5. Płeć pacjenta \n" +
+                "6. Wzrost pacjenta \n" +
+                "7. Aktywność pacjenta \n" +
+                "8. Informację o zaburzeniach gospodarki insulinowej \n" +
+                "9. Informację o uczuleniu na orzechy \n" +
+                "10. Informację o uczuleniu na laktozę \n" +
+                "11. Informację o weganiźmie \n" +
+                "12. Informację o wegetarianiźmie \n" +
+                "13. Ponowne wyliczenie BMR oraz zapotrzebowania kalorycznego \n" +
+                "14. Wyniki insuliny na czczo \n" +
+                "15. Wyniki glukozy na czczo \n" +
+                "16. Wróć do poprzedniego menu\n");
     }
 }
