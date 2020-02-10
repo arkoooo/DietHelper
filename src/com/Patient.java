@@ -1,16 +1,26 @@
-package com.dietHelper;
-
+package com.DietHelper;
 import java.util.Calendar;
-
-import static com.dietHelper.Main.scanner;
+import static com.DietHelper.Variables.selectedPatient;
 
 public class Patient {
      private String name, surname;
-     private int id, weight, gender, year, height, activity, calories, bmr, insulin, glycemia, peanuts, lactose, diabetes, vegan, vegetarian;
+     private int id, weight, gender, year, height, activity, calories, bmr, insulin, glycemia, peanuts, lactose, diabetes, vegan, vegetarian, gluten;
      int[] likedProducts = new int[100];
      int[] unlikedProducts = new int [100];
 
     public Patient() {
+    }
+
+    public static void writePatientList() {
+        for (int i = 0; i < Variables.patientList.size(); i++) {
+            System.out.print(Variables.patientList.get(i).getId() + ". " + Variables.patientList.get(i).getName() + " " + Variables.patientList.get(i).getSurname());
+            if (i == selectedPatient - 1) {
+                System.out.print(" <- Aktualnie wybrany pacjent. \n");
+            }else{
+                System.out.println("");
+            }
+        }
+        System.out.println("");
     }
 
     public int getId() { return id;
@@ -147,6 +157,14 @@ public class Patient {
         this.vegetarian = vegetarian;
     }
 
+    public int getGluten() {
+        return gluten;
+    }
+
+    public void setGluten(int gluten) {
+        this.gluten = gluten;
+    }
+
     //Calculating BMR according to the Mifflin-St Jeor formula
     public void calculateBmr(){
         switch(getGender()){
@@ -221,45 +239,4 @@ public class Patient {
         return Calendar.getInstance().get(Calendar.YEAR)-getYear();
     }
 
-    public static void stringToMethod(Patient patient, String method){
-        switch(method){
-            case "setGender":
-                patient.setGender(scanner.nextInt());
-                break;
-            case "setWeight":
-                patient.setWeight(scanner.nextInt());
-                break;
-            case "setHeight":
-                patient.setHeight(scanner.nextInt());
-                break;
-            case "setDiabetes":
-                patient.setDiabetes(scanner.nextInt());
-                break;
-            case "setVegetarian":
-                patient.setVegetarian(scanner.nextInt());
-                break;
-            case "setActivity":
-                patient.setActivity(scanner.nextInt());
-                break;
-            case "setGlycemia":
-                patient.setGlycemia(scanner.nextInt());
-                break;
-            case "setInsulin":
-                patient.setInsulin(scanner.nextInt());
-                break;
-            case "setLactose":
-                patient.setLactose(scanner.nextInt());
-                break;
-            case "setPeanuts":
-                patient.setPeanuts(scanner.nextInt());
-                break;
-            case "setVegan":
-                patient.setVegan(scanner.nextInt());
-                break;
-            case "setYear":
-                patient.setYear(scanner.nextInt());
-                break;
-        }
-
-    }
 }

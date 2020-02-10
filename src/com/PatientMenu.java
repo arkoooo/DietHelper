@@ -1,4 +1,4 @@
-package com.dietHelper;
+package com.DietHelper;
 
 public class PatientMenu {
     static void patientMenu() {

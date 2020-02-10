@@ -1,4 +1,4 @@
-package com.dietHelper;
+package com.DietHelper;
 
 public class Result {
     private int id, patientId, firstResult, secondResult,thirdResult;
@@ -53,10 +53,10 @@ public class Result {
     public TypeOfResults getTypeOfResults() {
         return typeOfResults;
     }
-
     public void setTypeOfResults(TypeOfResults typeOfResults) {
         this.typeOfResults = typeOfResults;
     }
+
 }
 enum TypeOfResults {
     INSULIN, GLYCEMIA
