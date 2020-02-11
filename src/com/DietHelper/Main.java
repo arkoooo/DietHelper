@@ -43,6 +43,7 @@ public class Main {
         Product product2 = new Product();
 
         product.setName("Ryż basmati");
+
         product.setProtein(5);
         product.setHasGluten(false);
         product.setVegetarian(true);

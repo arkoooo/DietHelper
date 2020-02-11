@@ -1,12 +1,15 @@
 package com.DietHelper;
 import java.util.Calendar;
+import java.util.LinkedList;
+import java.util.List;
+
 import static com.DietHelper.Variables.selectedPatient;
 
 public class Patient {
      private String name, surname;
      private int id, weight, gender, year, height, activity, calories, bmr, insulin, glycemia, peanuts, lactose, diabetes, vegan, vegetarian, gluten;
-     int[] likedProducts = new int[100];
-     int[] unlikedProducts = new int [100];
+     List<Integer> likedProducts = new LinkedList<>();
+     List<Integer> unlikedProducts = new LinkedList<>();
 
     public Patient() {
     }
@@ -180,7 +183,6 @@ public class Patient {
     }
 
     public void calculateTotalMetabolism(){
-
         //Calculation of total calories depends on activity *
         switch(getActivity()){
             case 1:

@@ -129,12 +129,14 @@ public class Meal {
     }
     public void calculateMeal() {
         int tempVegan = 0, tempVegetarian = 0, tempHasLactose = 0, tempHasPeanuts = 0, tempHasGluten = 0, tempIsForDiabetic = 0;
-        for(Product product : listOfProductsInMeal){
-            // *waga
-            setCalories(getCalories()+product.getCalories());
-            setProtein(getProtein()+product.getProtein());
-            setFat(getFat()+product.getFat());
-            setCarbohydrates(getCarbohydrates()+product.getCarbohydrates());
+
+            for (int i = 0; i < listOfProductsInMeal.size(); i++) {
+                Product product = listOfProductsInMeal.get(i);
+
+            setCalories(getCalories()+((product.getCalories()*weightOfProducts.get(i))/100));
+            setProtein(getProtein()+((product.getProtein()*weightOfProducts.get(i))/100));
+            setFat(getFat()+((product.getFat()*weightOfProducts.get(i))/100));
+            setCarbohydrates(getCarbohydrates()+((product.getCarbohydrates()*weightOfProducts.get(i))/100));
             if(product.isVegan()){
                 tempVegan++;
             }if(product.isVegetarian()){
