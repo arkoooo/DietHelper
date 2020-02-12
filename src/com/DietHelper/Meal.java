@@ -3,16 +3,18 @@ package com.DietHelper;
 import java.util.LinkedList;
 import java.util.List;
 
+import static com.DietHelper.Sentences.changeSizeOfMeal;
 import static com.DietHelper.Sentences.changeTypeOfMeal;
 import static com.DietHelper.Variables.*;
 
 public class Meal {
     private String name;
-    private int protein, carbohydrates, fat, calories, temp;
+    private int protein, carbohydrates, fat, calories;
     private boolean isForDiabetic = false, isVegan = false, isVegetarian = false, hasLactose = true, hasPeanuts = true, hasGluten = true;
     private TypeOfMeal typeOfMeal;
-    public static List<Product> listOfProductsInMeal = new LinkedList<>();
-    public static List<Integer> weightOfProducts = new LinkedList<>();
+    private SizeOfMeal sizeOfMeal;
+    public List<Product> listOfProductsInMeal = new LinkedList<>();
+    public List<Integer> weightOfProducts = new LinkedList<>();
 
     public String getName() {
         return name;
@@ -80,12 +82,15 @@ public class Meal {
     public void setHasGluten(boolean hasGluten) {
         this.hasGluten = hasGluten;
     }
-
-
+    public SizeOfMeal getSizeOfMeal() {
+        return sizeOfMeal;
+    }
+    public void setSizeOfMeal(SizeOfMeal sizeOfMeal) {
+        this.sizeOfMeal = sizeOfMeal;
+    }
     public TypeOfMeal getTypeOfMeal() {
         return typeOfMeal;
     }
-
     public void setTypeOfMeal(TypeOfMeal typeOfMeal) {
         this.typeOfMeal = typeOfMeal;
     }
@@ -97,33 +102,22 @@ public class Meal {
             System.out.println("Brak posiłków w bazie.");
         } else {
             for (int i = 0; i < mealsList.size(); i++) {
-                System.out.print(i + 1 + ". " + mealsList.get(i).getName() + " B: " + mealsList.get(i).getProtein() + " WW: " + mealsList.get(i).getCarbohydrates() + " T: " + mealsList.get(i).getFat() + " Kcal: " +
-                        mealsList.get(i).getCalories() + " Rodzaj posiłku: " + changeTypeOfMeal(mealsList.get(i).getTypeOfMeal()));
+                System.out.print(i + 1 + ". " + mealsList.get(i).getName() + " B: " + mealsList.get(i).getProtein() + ", WW: " + mealsList.get(i).getCarbohydrates() + ", T: " +
+                        mealsList.get(i).getFat() + ", Kcal: " + mealsList.get(i).getCalories() + " Rodzaj posiłku: " + changeTypeOfMeal(mealsList.get(i).getTypeOfMeal())
+                        + " Rozmiar posiłku: " + changeSizeOfMeal(mealsList.get(i).getSizeOfMeal()));
                 if (mealsList.get(i).isVegan()) {
-                    System.out.print(" W: Tak, ");
-                }if (!mealsList.get(i).isVegan()) {
-                    System.out.print(" W: Nie, ");
-                }if (mealsList.get(i).isVegetarian()) {
-                    System.out.print("WT: Tak, ");
-                }if (!mealsList.get(i).isVegetarian()) {
-                    System.out.print("WT: Nie, ");
-                }if (mealsList.get(i).isHasLactose()) {
-                    System.out.print("L: Tak, ");
-                }if (!mealsList.get(i).isHasLactose()) {
-                    System.out.print("L: Nie, ");
-                }if (mealsList.get(i).isHasPeanuts()) {
-                    System.out.print("O: Tak, ");
-                }if (!mealsList.get(i).isHasPeanuts()) {
-                    System.out.print("O: Nie, ");
-                }if (mealsList.get(i).isForDiabetic()) {
-                    System.out.print("D: Tak, ");
-                }if (!mealsList.get(i).isForDiabetic()) {
-                    System.out.print("D: Nie, ");
-                }if (mealsList.get(i).isHasGluten()) {
-                    System.out.println("G: Tak.");
-                }if (!mealsList.get(i).isHasGluten()) {
-                    System.out.println("G: Nie.");
-                }
+                    System.out.print(" W: Tak, "); }
+                if (!mealsList.get(i).isVegan()) { System.out.print(" W: Nie, "); }
+                if (mealsList.get(i).isVegetarian()) { System.out.print("WT: Tak, "); }
+                if (!mealsList.get(i).isVegetarian()) { System.out.print("WT: Nie, "); }
+                if (mealsList.get(i).isHasLactose()) { System.out.print("L: Tak, "); }
+                if (!mealsList.get(i).isHasLactose()) { System.out.print("L: Nie, "); }
+                if (mealsList.get(i).isHasPeanuts()) { System.out.print("O: Tak, "); }
+                if (!mealsList.get(i).isHasPeanuts()) { System.out.print("O: Nie, "); }
+                if (mealsList.get(i).isForDiabetic()) { System.out.print("D: Tak, "); }
+                if (!mealsList.get(i).isForDiabetic()) { System.out.print("D: Nie, "); }
+                if (mealsList.get(i).isHasGluten()) { System.out.println("G: Tak."); }
+                if (!mealsList.get(i).isHasGluten()) { System.out.println("G: Nie."); }
             }
         }
     }
@@ -133,37 +127,26 @@ public class Meal {
             for (int i = 0; i < listOfProductsInMeal.size(); i++) {
                 Product product = listOfProductsInMeal.get(i);
 
-            setCalories(getCalories()+((product.getCalories()*weightOfProducts.get(i))/100));
-            setProtein(getProtein()+((product.getProtein()*weightOfProducts.get(i))/100));
-            setFat(getFat()+((product.getFat()*weightOfProducts.get(i))/100));
-            setCarbohydrates(getCarbohydrates()+((product.getCarbohydrates()*weightOfProducts.get(i))/100));
-            if(product.isVegan()){
-                tempVegan++;
-            }if(product.isVegetarian()){
-                tempVegetarian++;
-            }if(product.isHasLactose()){
-                tempHasLactose++;
-            }if(product.isHasPeanuts()){
-                tempHasPeanuts++;
-            }if(product.isHasGluten()){
-                tempHasGluten++;
-            }if(product.isForDiabetic()){
-                tempIsForDiabetic++;
+                // Calculating macronutiens of meal
+               setCalories(getCalories()+((product.getCalories()*weightOfProducts.get(i))/100));
+                setProtein(getProtein()+((product.getProtein()*weightOfProducts.get(i))/100));
+                setFat(getFat()+((product.getFat()*weightOfProducts.get(i))/100));
+                setCarbohydrates(getCarbohydrates()+((product.getCarbohydrates()*weightOfProducts.get(i))/100));
+
+                // Marking meal which patient can eat it
+                if(product.isVegan()){ tempVegan++; }
+                if(product.isVegetarian()){ tempVegetarian++; }
+                if(product.isHasLactose()){ tempHasLactose++; }
+                if(product.isHasPeanuts()){ tempHasPeanuts++; }
+                if(product.isHasGluten()){ tempHasGluten++; }
+                if(product.isForDiabetic()){ tempIsForDiabetic++; }
             }
-        }
-        if(tempVegan == listOfProductsInMeal.size()){
-            setVegan(true);
-        }if(tempVegetarian == listOfProductsInMeal.size()){
-            setVegetarian(true);
-        }if(tempHasLactose == 0){
-            setHasLactose(false);
-        }if(tempHasGluten == 0){
-            setHasGluten(false);
-        }if(tempHasPeanuts == 0){
-            setHasPeanuts(false);
-        }if(tempIsForDiabetic == listOfProductsInMeal.size()){
-            setForDiabetic(true);
-        }
+        if(tempVegan == listOfProductsInMeal.size()){ setVegan(true); }
+        if(tempVegetarian == listOfProductsInMeal.size()){ setVegetarian(true); }
+        if(tempHasLactose == 0){ setHasLactose(false); }
+        if(tempHasGluten == 0){ setHasGluten(false); }
+        if(tempHasPeanuts == 0){ setHasPeanuts(false); }
+        if(tempIsForDiabetic == listOfProductsInMeal.size()){ setForDiabetic(true); }
     }
 
 

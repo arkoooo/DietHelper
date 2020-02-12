@@ -3,7 +3,6 @@ package com.DietHelper;
 import java.util.LinkedList;
 import java.util.List;
 
-import static com.DietHelper.Meal.weightOfProducts;
 import static com.DietHelper.Product.listOfProducts;
 import static com.DietHelper.Sentences.isThatGoodChoice;
 import static com.DietHelper.Sentences.wrongChoice;
@@ -62,6 +61,7 @@ public class Diet {
         diet.setNumberOfMeals(choice);
 
         caloriesPerMeal = diet.getCalories()/diet.getNumberOfMeals();
+
     }
     public static void getLikedProducts(){
         Patient actualPatient = patientList.get(selectedPatient-1);

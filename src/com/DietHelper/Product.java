@@ -1,8 +1,4 @@
 package com.DietHelper;
-
-import java.util.LinkedList;
-import java.util.List;
-
 import static com.DietHelper.Variables.productsList;
 
 public class Product {
@@ -105,12 +101,12 @@ public class Product {
             System.out.println("Brak produktów w bazie.");
         }else {
             for (int i = 0; i < productsList.size(); i++) {
-                System.out.print(i+1 + ". " + productsList.get(i).getName() + " B: " + productsList.get(i).getProtein() + " WW: " + productsList.get(i).getCarbohydrates() + " T: " + productsList.get(i).getFat() + " Kcal: " +
+                System.out.print(i+1 + ". " + productsList.get(i).getName() + " B: " + productsList.get(i).getProtein() + ", WW: " + productsList.get(i).getCarbohydrates() + ", T: " + productsList.get(i).getFat() + ", Kcal: " +
                         productsList.get(i).getCalories());
                 if (productsList.get(i).isVegan()) {
-                    System.out.print(" W: Tak, ");
+                    System.out.print(", W: Tak, ");
                 }if (!productsList.get(i).isVegan()) {
-                    System.out.print(" W: Nie, ");
+                    System.out.print(", W: Nie, ");
                 }if (productsList.get(i).isVegetarian()) {
                     System.out.print("WT: Tak, ");
                 }if (!productsList.get(i).isVegetarian()) {

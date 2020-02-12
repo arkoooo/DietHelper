@@ -87,7 +87,7 @@ public class UserInputs {
             }
         } while (!Variables.goodChoice);
     }
-    public static void getInputFromUser(Meal meal, String sentence, int lowRange, int highRange){
+    public static int getInputFromUser(Meal meal, String sentence, int lowRange, int highRange){
         do {
             System.out.println(sentence);
             if (Variables.scanner.hasNextInt()) {
@@ -106,6 +106,7 @@ public class UserInputs {
                 wrongChoice();
             }
         } while (!Variables.goodChoice);
+        return choice;
     }
 
 }

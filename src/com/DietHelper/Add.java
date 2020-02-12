@@ -1,6 +1,5 @@
 package com.DietHelper;
 
-import static com.DietHelper.Meal.*;
 import static com.DietHelper.Product.listOfProducts;
 import static com.DietHelper.Sentences.stringToMethod;
 import static com.DietHelper.Sentences.isThatGoodChoice;
@@ -129,21 +128,39 @@ public class Add {
     }
     public static void newMeal() {
         Meal meal = new Meal();
+
         System.out.println("Podaj nazwę posiłku: ");
         meal.setName(scanner.nextLine());
         System.out.println("Dodaj poszczególne produkty, z których składa się posiłek. Po kolei wpisuj identyfikator produktu oraz gramaturę.");
+        getInputFromUser(meal, "Jakiego typu to posiłek? Wybierz 1: jeżeli dowolny, 2: jeżeli śniadanie, 3: jeżeli obiad, 4: jeżeli kolacja, 5: jeżeli przekąska",1,5);
+        int sizeOfMeal = getInputFromUser("Jeżeli chcesz dodać jeden posiłek w 3 wariantach (mały, średni, duży), wpisz 0. Jeżeli chcesz dodać 1 wariant to wpisz odpowiednio 1 dla małego, 2 dla średniego, 3 dla dużego",0,3);
         tempNumberOfProducts = getInputFromUser("Z ilu produktów składa się posiłek?",1,30);
         listOfProducts();
-        getInputFromUser(meal, "Jakiego typu to posiłek? Wybierz 1: jeżeli dowolny, 2: jeżeli śniadanie, 3: jeżeli obiad, 4: jeżeli kolacja, 5: jeżeli przekąska",1,5);
 
-        for (int i = 0; i < tempNumberOfProducts ; i++) {
+        switch(sizeOfMeal){
+            case 1:
+                meal.setSizeOfMeal(SizeOfMeal.SMALL);
+                break;
+            case 2:
+                meal.setSizeOfMeal(SizeOfMeal.MEDIUM);
+                break;
+            case 3:
+                meal.setSizeOfMeal(SizeOfMeal.LARGE);
+                break;
+        }
+        addProductsToMeal(meal);
+        meal.calculateMeal();
+        mealsList.add(meal);
+    }
+    public static void addProductsToMeal(Meal meal) {
+        for (int i = 0; i < tempNumberOfProducts; i++) {
             do {
                 System.out.println("Podaj identyfikator produktu: ");
                 if (Variables.scanner.hasNextInt()) {
                     Variables.choice = Variables.scanner.nextInt();
                     Variables.scanner.nextLine();
                     if (isThatGoodChoice(Variables.choice, 1, productsList.size())) {
-                        listOfProductsInMeal.add(productsList.get(choice - 1));
+                        meal.listOfProductsInMeal.add(productsList.get(choice - 1));
                         Variables.goodChoice = true;
                     } else {
                         wrongChoice();
@@ -161,7 +178,7 @@ public class Add {
                     Variables.choice = Variables.scanner.nextInt();
                     Variables.scanner.nextLine();
                     if (isThatGoodChoice(Variables.choice, 0, 10000)) {
-                        weightOfProducts.add(choice);
+                        meal.weightOfProducts.add(choice);
                         Variables.goodChoice = true;
                     } else {
                         wrongChoice();
@@ -174,8 +191,5 @@ public class Add {
                 }
             } while (!Variables.goodChoice);
         }
-        meal.calculateMeal();
-        mealsList.add(meal);
     }
-
 }

@@ -1,7 +1,6 @@
 package com.DietHelper;
 
 import static com.DietHelper.Variables.patientList;
-import static com.DietHelper.Variables.selectedPatient;
 
 public class Sentences {
     public static void wrongChoice(){
@@ -37,7 +36,9 @@ public class Sentences {
                 "3. Przeglądaj produkty \n" +
                 "4. Przeglądaj posiłki \n" +
                 "5. Ustal dietę pacjentowi \n" +
-                "6. Powrót do poprzedniego menu \n" +
+                "6. Usuń produkt \n" +
+                "7. Usuń posiłek \n" +
+                "8. Powrót do poprzedniego menu \n" +
                 "Wpisz numer: ";}
     public static String typeActivity(){
         return "Podaj aktywność pacjenta: \n"+
@@ -306,6 +307,18 @@ public class Sentences {
                 return "kolacja.";
             default:
                 return null;
+        }
+    }
+    public static String changeSizeOfMeal(SizeOfMeal sizeOfMeal){
+        switch(sizeOfMeal){
+            case SMALL:
+                return "mały.";
+            case MEDIUM:
+                return "średni.";
+            case LARGE:
+                return "duży.";
+            default:
+                return "brak";
         }
     }
     static void choiceToTypeOfMeal(Meal meal, int choice) {
