@@ -7,7 +7,7 @@ import static com.DietHelper.Variables.selectedPatient;
 
 public class Patient {
      private String name, surname;
-     private int id, weight, gender, year, height, activity, calories, bmr, insulin, glycemia, peanuts, lactose, diabetes, vegan, vegetarian, gluten;
+     private int id, weight, gender, year, height, activity, calories, bmr, insulin, glycemia, peanuts, lactose, diabetes, vegan, vegetarian, gluten, dietId;
      List<Integer> likedProducts = new LinkedList<>();
      List<Integer> unlikedProducts = new LinkedList<>();
 
@@ -167,6 +167,13 @@ public class Patient {
     public void setGluten(int gluten) {
         this.gluten = gluten;
     }
+    public int getDietId() {
+        return dietId;
+    }
+
+    public void setDietId(int dietId) {
+        this.dietId = dietId;
+    }
 
     //Calculating BMR according to the Mifflin-St Jeor formula
     public void calculateBmr(){
@@ -240,5 +247,6 @@ public class Patient {
     public int getAge(){
         return Calendar.getInstance().get(Calendar.YEAR)-getYear();
     }
+
 
 }

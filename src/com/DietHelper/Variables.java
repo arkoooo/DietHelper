@@ -16,6 +16,7 @@ public class Variables {
     static List<Result> resultsList = new LinkedList<>();
     static List<Product> productsList = new LinkedList<>();
     static List<Meal> mealsList = new LinkedList<>();
+    static List<Diet> dietsList = new LinkedList<>();
     static int numberOfResults;
     public static int tempNumberOfProducts;
 }

@@ -35,10 +35,11 @@ public class Sentences {
                 "2. Dodaj posiłek \n" +
                 "3. Przeglądaj produkty \n" +
                 "4. Przeglądaj posiłki \n" +
-                "5. Ustal dietę pacjentowi \n" +
-                "6. Usuń produkt \n" +
-                "7. Usuń posiłek \n" +
-                "8. Powrót do poprzedniego menu \n" +
+                "5. Ustal jadłospis pacjentowi \n" +
+                "6. Przeglądaj jadłospis pacjenta \n" +
+                "7. Usuń produkt \n" +
+                "8. Usuń posiłek \n" +
+                "9. Powrót do poprzedniego menu \n" +
                 "Wpisz numer: ";}
     public static String typeActivity(){
         return "Podaj aktywność pacjenta: \n"+
