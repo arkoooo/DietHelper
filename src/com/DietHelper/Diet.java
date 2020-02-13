@@ -3,9 +3,9 @@ package com.DietHelper;
 import java.util.LinkedList;
 import java.util.List;
 
+import static com.DietHelper.Meal.listOfMeals;
 import static com.DietHelper.Product.listOfProducts;
 import static com.DietHelper.Sentences.*;
-import static com.DietHelper.Sentences.changeSizeOfMeal;
 import static com.DietHelper.UserInputs.getInputFromUser;
 import static com.DietHelper.Variables.*;
 
@@ -62,7 +62,7 @@ public class Diet {
         diet.setPatientID(selectedPatient);
         actualPatient.setDietId(dietsList.size()+1);
 
-        getLikedProducts();
+        getDislikedProducts();
         System.out.println("BMR pacjenta to: " + actualPatient.getBmr() + ", a podaż kalorii potrzebna do utrzymania wagi to: " + actualPatient.getCalories() + "." );
         getInputFromUser("Jaką ilość kalorii ustalasz dla pacjenta?",actualPatient.getCalories()/5,actualPatient.getCalories()*5);
         diet.setCalories(choice);
@@ -75,9 +75,10 @@ public class Diet {
 
 
     }
-    public static void getLikedProducts(){
+    public static void getDislikedProducts(){
         Patient actualPatient = patientList.get(selectedPatient-1);
         listOfProducts();
+        /**
         System.out.println("Wybierz lubiane przez pacjenta produkty.");
         do {
             System.out.println("Wpisz numer i zatwierdź enterem. Jeżeli chcesz zakończyć wprowadzać produkty wpisz 0. ");
@@ -98,7 +99,7 @@ public class Diet {
                 wrongChoice();
             }
         } while (!Variables.goodChoice || choice != 0);
-
+        **/
         System.out.println("Wybierz nielubiane przez pacjenta produkty.");
         do {
             System.out.println("Wpisz numer i zatwierdź enterem. Jeżeli chcesz zakończyć wprowadzać produkty wpisz 0. ");
@@ -108,7 +109,7 @@ public class Diet {
                 if(choice == 0){
                     break;
                 }if (isThatGoodChoice(Variables.choice, 1, productsList.size())) {
-                    actualPatient.unlikedProducts.add(choice-1);
+                    actualPatient.dislikedProducts.add(choice-1);
                     Variables.goodChoice = true;
                 } else {
                     wrongChoice();
@@ -125,28 +126,19 @@ public class Diet {
         Patient actualPatient = patientList.get(selectedPatient-1);
         Diet actualPatientDiet = dietsList.get(actualPatient.getDietId()-1);
 
-        System.out.println("Caloriespermeal: " + caloriesPerMeal);
         for (int i = 0; i < mealsList.size(); i++) {
-            System.out.println("Sprawdzam: " + mealsList.get(i).getName());
-
-            if(mealsList.get(i).getCalories() <= (caloriesPerMeal - 70) || mealsList.get(i).getCalories() >= (caloriesPerMeal + 70)){
+            // Check if the meal's calories match with accepted calories per meal. Margin of fault is 100 calories.
+            if (mealsList.get(i).getCalories() >= (caloriesPerMeal - 100) && mealsList.get(i).getCalories() <= (caloriesPerMeal + 100)) {
                 actualPatientDiet.allMeals.add(mealsList.get(i));
-                System.out.println("Dodaję");
-            }else{
-                System.out.println("Nie dodaję, bo: " + mealsList.get(i).getCalories());
             }
         }
-
     }
     public static void showDiet() {
         Patient actualPatient = patientList.get(selectedPatient-1);
         Diet actualPatientDiet = dietsList.get(actualPatient.getDietId()-1);
 
-        System.out.println(actualPatient.getName() + " " + actualPatient.getDietId() + " " +  dietsList.get(0).getPatientID() + " " + dietsList.get(0).getCalories());
-
-        for (int i = 0; i < actualPatientDiet.allMeals.size(); i++) {
-            System.out.println(actualPatientDiet.allMeals.get(i).getName());
+        listOfMeals(actualPatientDiet.allMeals);
         }
 
-    }
+
 }

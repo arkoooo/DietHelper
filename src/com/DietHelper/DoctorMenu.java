@@ -90,7 +90,7 @@ public class DoctorMenu {
                 dietAdmMenu();
                 break;
             case 4:
-                Meal.listOfMeals();
+                Meal.listOfMeals(mealsList);
                 choice = 0;
                 dietAdmMenu();
                 break;
@@ -114,7 +114,7 @@ public class DoctorMenu {
                 dietAdmMenu();
                 break;
             case 8:
-                Meal.listOfMeals();
+                Meal.listOfMeals(mealsList);
                 getInputFromUser("Podaj identyfikator posiłku, który usunąć",0,mealsList.size());
                 if(choice==0){
                     break;

@@ -95,7 +95,7 @@ public class Meal {
         this.typeOfMeal = typeOfMeal;
     }
 
-    public static void listOfMeals() {
+    public static void listOfMeals(List<Meal> mealsList) {
         System.out.println("Lista posiłków: " + "\n Legenda: B= białko, WW = węglowodany, T = tłuszcze, Kcal = ilość kalorii w 100g, W = wegański, WT = wegetariański, L = zawiera laktozę w składzie, " +
                 "O = zawiera orzechy w składzie, D = bezpieczny dla diabetków, G = zawiera gluten.");
         if (mealsList.size() == 0) {
