@@ -137,7 +137,9 @@ public class Diet {
         Patient actualPatient = patientList.get(selectedPatient-1);
         Diet actualPatientDiet = dietsList.get(actualPatient.getDietId()-1);
 
-        listOfMeals(actualPatientDiet.allMeals);
+        if(actualPatientDiet.allMeals.size()>0) {
+            listOfMeals(actualPatientDiet.allMeals);
+            }
         }
 
 

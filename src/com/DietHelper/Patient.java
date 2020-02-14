@@ -1,5 +1,6 @@
 package com.DietHelper;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -8,8 +9,8 @@ import static com.DietHelper.Variables.selectedPatient;
 public class Patient {
      private String name, surname;
      private int id, weight, gender, year, height, activity, calories, bmr, insulin, glycemia, peanuts, lactose, diabetes, vegan, vegetarian, gluten, dietId;
-     List<Integer> likedProducts = new LinkedList<>();
      List<Integer> dislikedProducts = new LinkedList<>();
+     HashMap<Double, String> weightResults = new HashMap<>();
 
     public Patient() {
     }

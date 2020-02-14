@@ -103,6 +103,7 @@ public class DoctorMenu {
                 Diet.showDiet();
                 choice = 0;
                 dietAdmMenu();
+                break;
             case 7:
                 Product.listOfProducts();
                 getInputFromUser("Podaj identyfikator produktu, który usunąć",0,productsList.size());

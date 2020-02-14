@@ -1,7 +1,7 @@
 package com.DietHelper;
-
 public class Result {
     private int id, patientId, firstResult, secondResult,thirdResult;
+    private String date;
     private TypeOfResults typeOfResults;
 
     public Result(int id, int patientId, TypeOfResults typeOfResults) {
@@ -57,6 +57,13 @@ public class Result {
         this.typeOfResults = typeOfResults;
     }
 
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getDate() {
+        return date;
+    }
 }
 enum TypeOfResults {
     INSULIN, GLYCEMIA

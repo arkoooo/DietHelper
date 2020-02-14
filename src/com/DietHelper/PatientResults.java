@@ -30,6 +30,8 @@ public class PatientResults {
                 UserInputs.getInputFromUser(glycemia,"Podaj glikemię na czczo:",0,500,"setFirstResult");
                 UserInputs.getInputFromUser(glycemia,"Podaj glikemię 1h po przyjęciu glukozy",0,500,"setSecondResult");
                 UserInputs.getInputFromUser(glycemia,"Podaj glikemię 2h po przyjęciu glukozy",0,500,"setThirdResult");
+                System.out.println("Podaj datę badania:");
+                glycemia.setDate(scanner.nextLine());
                 choice = 0;
                 resultMenu();
                 break;
@@ -40,6 +42,8 @@ public class PatientResults {
                 UserInputs.getInputFromUser(insulin,"Podaj insulinę na czczo:",0,500,"setFirstResult");
                 UserInputs.getInputFromUser(insulin,"Podaj insulinę 1h po przyjęciu glukozy",0,500,"setSecondResult");
                 UserInputs.getInputFromUser(insulin,"Podaj insulinę 2h po przyjęciu glukozy",0,500,"setThirdResult");
+                System.out.println("Podaj datę badania:");
+                insulin.setDate(scanner.nextLine());
                 choice = 0;
                 resultMenu();
                 break;
@@ -67,6 +71,7 @@ public class PatientResults {
             for (int i = 0; i < actualPatientResultsList.size(); i++) {
                 switch (actualPatientResultsList.get(i).getTypeOfResults()) {
                     case INSULIN:
+                        System.out.println("Data badania: " + actualPatientResultsList.get(i).getDate());
                         System.out.println("Wyniki insuliny (id wyniku: " + actualPatientResultsList.get(i).getId() + ")");
                         System.out.println("Wynik na czczo: " + actualPatientResultsList.get(i).getFirstResult());
                         System.out.println("Wynik 1h po przyjęciu glukozy: " + actualPatientResultsList.get(i).getSecondResult());
@@ -74,6 +79,7 @@ public class PatientResults {
                         System.out.println();
                         break;
                     case GLYCEMIA:
+                        System.out.println("Data badania: " + actualPatientResultsList.get(i).getDate());
                         System.out.println("Wyniki glikemii (id wyniku: " + actualPatientResultsList.get(i).getId() + ")");
                         System.out.println("Wynik na czczo: " + actualPatientResultsList.get(i).getFirstResult());
                         System.out.println("Wynik 1h po przyjęciu glukozy: " + actualPatientResultsList.get(i).getSecondResult());

@@ -12,6 +12,8 @@ public class Variables {
     public static int numberOfPatients;
     public static int selectedPatient;
     public static int numberOfProducts;
+    public static double weight;
+    public static int productWeight;
     static List<Patient> patientList = new LinkedList<>();
     static List<Result> resultsList = new LinkedList<>();
     static List<Product> productsList = new LinkedList<>();

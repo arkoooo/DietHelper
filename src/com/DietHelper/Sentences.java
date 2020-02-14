@@ -1,6 +1,7 @@
 package com.DietHelper;
 
 import static com.DietHelper.Variables.patientList;
+import static com.DietHelper.Variables.selectedPatient;
 
 public class Sentences {
     public static void wrongChoice(){
@@ -50,6 +51,13 @@ public class Sentences {
                 "5 - bardzo wysoka aktywność, sportowcy zawodowi, osoby trenujące codzienie";
     }
     public static boolean isThatGoodChoice(int number, int lowRange, int highRange){
+        if (number >= lowRange && number <= highRange){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    public static boolean isThatGoodChoice(double number, double lowRange, double highRange){
         if (number >= lowRange && number <= highRange){
             return true;
         }else{
@@ -169,16 +177,12 @@ public class Sentences {
         switch(activity){
             case 1:
                 return "1 - brak aktywności, praca siedząca";
-
             case 2:
                 return "2 - niska aktywność, praca siedząca, 1-2 treningi w tygodniu";
-
             case 3:
                 return "3 - średnia aktywność, praca siedząca, 3-4 treningi w tygodniu";
-
             case 4:
                 return "4 - wysoka aktywność, praca fizyczna i 3-4 treningi w tygodniu";
-
             case 5:
                 return "5 - bardzo wysoka aktywność, sportowcy zawodowi, osoby trenujące codzienie";
             default:
@@ -189,13 +193,10 @@ public class Sentences {
         switch(diabeticProblem){
             case 1:
                 return "Insulinooporność";
-
             case 2:
                 return "Hiperinsulinemia";
-
             case 3:
                 return "Hipoglikemia reaktywna";
-
             case 4:
                 return "Cukrzyca";
             default:
@@ -342,5 +343,18 @@ public class Sentences {
             default:
                 break;
         }
+    }
+
+    public static String patientMenuSentence() {
+        Patient actualPatient = patientList.get(selectedPatient-1);
+        return "Witaj " + actualPatient.getName() + " w panelu pacjenta. \n" +
+        "Wpisz numer opcji, którą wybierasz: \n" +
+                "1. Wyświetl jadłospis \n" +
+                "2. Podaj bieżące wyniki glukozy \n" +
+                "3. Podaj bieżące wyniki insuliny \n" +
+                "4. Wyświetl wyniki glukozy \n" +
+                "5. Podaj wagę \n" +
+                "6. Wyświetl statystyki wagi \n" +
+                "7. Powrót do poprzedniego menu";
     }
 }

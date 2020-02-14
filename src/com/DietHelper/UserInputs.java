@@ -2,6 +2,7 @@ package com.DietHelper;
 
 import static com.DietHelper.Sentences.*;
 import static com.DietHelper.Variables.choice;
+import static com.DietHelper.Variables.weight;
 
 public class UserInputs {
     public static int getInputFromUser(String sentence, int lowRange, int highRange){
@@ -11,6 +12,27 @@ public class UserInputs {
                 Variables.choice = Variables.scanner.nextInt();
                 Variables.scanner.nextLine();
                 if (isThatGoodChoice(Variables.choice, lowRange, highRange)) {
+                    Variables.goodChoice = true;
+                } else {
+                    wrongChoice();
+                    Variables.goodChoice = false;
+                }
+            } else {
+                Variables.scanner.nextLine();
+                Variables.goodChoice = false;
+                wrongChoice();
+            }
+        } while (!Variables.goodChoice);
+        return choice;
+    }
+
+    public static int getInputFromUser(String sentence, double lowRange, double highRange){
+        do {
+            System.out.println(sentence);
+            if (Variables.scanner.hasNextDouble()) {
+                Variables.weight = Variables.scanner.nextDouble();
+                Variables.scanner.nextLine();
+                if (isThatGoodChoice(Variables.weight, lowRange, highRange)) {
                     Variables.goodChoice = true;
                 } else {
                     wrongChoice();

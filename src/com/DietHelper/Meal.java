@@ -1,5 +1,6 @@
 package com.DietHelper;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -15,6 +16,7 @@ public class Meal {
     private SizeOfMeal sizeOfMeal;
     public List<Product> listOfProductsInMeal = new LinkedList<>();
     public List<Integer> weightOfProducts = new LinkedList<>();
+    public HashMap<Product,Integer> listOfProductsInMeal2 = new HashMap<>();
 
     public String getName() {
         return name;
@@ -147,6 +149,7 @@ public class Meal {
         if(tempHasGluten == 0){ setHasGluten(false); }
         if(tempHasPeanuts == 0){ setHasPeanuts(false); }
         if(tempIsForDiabetic == listOfProductsInMeal.size()){ setForDiabetic(true); }
+
     }
 
 
