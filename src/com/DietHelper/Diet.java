@@ -125,13 +125,24 @@ public class Diet {
     public void getMealsToDiet(){
         Patient actualPatient = patientList.get(selectedPatient-1);
         Diet actualPatientDiet = dietsList.get(actualPatient.getDietId()-1);
+        boolean canAddMeal = false;
 
         for (int i = 0; i < mealsList.size(); i++) {
             // Check if the meal's calories match with accepted calories per meal. Margin of fault is 100 calories.
             if (mealsList.get(i).getCalories() >= (caloriesPerMeal - 100) && mealsList.get(i).getCalories() <= (caloriesPerMeal + 100)) {
+                canAddMeal = true;
+            }
+            for (int j = 0; j < mealsList.get(i).listOfProductsInMeal.size(); j++) {
+                //if(actualPatient.dislikedProducts.contains(produkt z posilku)){
+                    canAddMeal = false;
+                }
+            }
+
+            if(canAddMeal){
                 actualPatientDiet.allMeals.add(mealsList.get(i));
             }
         }
+
     }
     public static void showDiet() {
         Patient actualPatient = patientList.get(selectedPatient-1);

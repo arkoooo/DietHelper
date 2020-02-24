@@ -152,6 +152,7 @@ public class Add {
         meal.calculateMeal();
         mealsList.add(meal);
     }
+
     public static void addProductsToMeal(Meal meal) {
         for (int i = 0; i < tempNumberOfProducts; i++) {
             do {
@@ -191,45 +192,5 @@ public class Add {
                 }
             } while (!Variables.goodChoice);
         }
-
-        /**
-        for (int i = 0; i < tempNumberOfProducts; i++) {
-            do {
-                System.out.println("Podaj identyfikator produktu: ");
-                if (Variables.scanner.hasNextInt()) {
-                    Variables.choice = Variables.scanner.nextInt();
-                    Variables.scanner.nextLine();
-                    if (isThatGoodChoice(Variables.choice, 1, productsList.size())) {
-                        Variables.goodChoice = true;
-                    } else {
-                        wrongChoice();
-                        Variables.goodChoice = false;
-                    }
-                } else {
-                    Variables.scanner.nextLine();
-                    Variables.goodChoice = false;
-                    wrongChoice();
-                }
-            } while (!Variables.goodChoice);
-            do {
-                System.out.println("Podaj wagę produktu: ");
-                if (Variables.scanner.hasNextInt()) {
-                    Variables.productWeight = Variables.scanner.nextInt();
-                    Variables.scanner.nextLine();
-                    if (isThatGoodChoice(Variables.productWeight, 0, 10000)) {
-                        Variables.goodChoice = true;
-                    } else {
-                        wrongChoice();
-                        Variables.goodChoice = false;
-                    }
-                } else {
-                    Variables.scanner.nextLine();
-                    Variables.goodChoice = false;
-                    wrongChoice();
-                }
-            } while (!Variables.goodChoice);
-        }
-        meal.listOfProductsInMeal2.put(productsList.get(choice-1),productWeight);
-        */
     }
 }

@@ -16,7 +16,6 @@ public class Meal {
     private SizeOfMeal sizeOfMeal;
     public List<Product> listOfProductsInMeal = new LinkedList<>();
     public List<Integer> weightOfProducts = new LinkedList<>();
-    public HashMap<Product,Integer> listOfProductsInMeal2 = new HashMap<>();
 
     public String getName() {
         return name;
@@ -152,7 +151,8 @@ public class Meal {
 
     }
 
-
     }
+
+
 
 
