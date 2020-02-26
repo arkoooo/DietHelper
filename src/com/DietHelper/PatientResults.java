@@ -65,7 +65,7 @@ public class PatientResults {
             }
         }
         System.out.println("Wyniki:");
-        if(actualPatientResultsList.size() == 0){
+        if(actualPatientResultsList.isEmpty()){
             System.out.println("Brak wyników");
         }else {
             for (int i = 0; i < actualPatientResultsList.size(); i++) {

@@ -10,7 +10,7 @@ public class PatientMenu {
 
     public static void patientMenu() {
         Patient actualPatient = Variables.patientList.get(selectedPatient-1);
-        getInputFromUser(Sentences.patientMenuSentence(), 1, 7);
+        getInputFromUser(Sentences.patientMenuSentence(), 1, 8);
 
         switch(choice){
             case 1:
@@ -19,6 +19,10 @@ public class PatientMenu {
                 patientMenu();
                 break;
             case 2:
+                Diet.showAllPatientMeals();
+                choice = 0;
+                patientMenu();;
+            case 3:
                 Variables.numberOfResults++;
                 Result glycemia = new Result(Variables.numberOfResults, Variables.selectedPatient, GLYCEMIA);
                 Variables.resultsList.add(glycemia);
@@ -30,7 +34,7 @@ public class PatientMenu {
                 choice = 0;
                 patientMenu();
                 break;
-            case 3:
+            case 4:
                 Variables.numberOfResults++;
                 Result insulin = new Result(Variables.numberOfResults, Variables.selectedPatient,INSULIN);
                 Variables.resultsList.add(insulin);
@@ -42,26 +46,26 @@ public class PatientMenu {
                 choice = 0;
                 patientMenu();
                 break;
-            case 4:
+            case 5:
                 PatientResults.findActualPatientResults();
                 choice = 0;
                 patientMenu();
                 break;
-            case 5:
+            case 6:
                 getInputFromUser("Podaj aktualną wagę: ", 10.0,400.0);
                 System.out.println("Podaj datę ważenia: ");
                 actualPatient.weightResults.put(weight,scanner.nextLine());
                 choice = 0;
                 patientMenu();
                 break;
-            case 6:
+            case 7:
                 for (Double i: actualPatient.weightResults.keySet()){
                     System.out.println("Data: "  + actualPatient.weightResults.get(i) + " waga: " + i);
                 }
                 choice = 0;
                 patientMenu();
                 break;
-            case 7:
+            case 8:
                 choice = 0;
                 mainMenu();
                 break;

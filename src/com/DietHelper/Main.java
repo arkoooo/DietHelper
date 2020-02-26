@@ -1,5 +1,7 @@
 package com.DietHelper;
 
+import javax.swing.*;
+
 import static com.DietHelper.Sentences.*;
 
 public class Main {
@@ -41,5 +43,6 @@ public class Main {
                     break;
             }
         }
+
     }
 

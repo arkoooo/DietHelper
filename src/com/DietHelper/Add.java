@@ -1,7 +1,6 @@
 package com.DietHelper;
 
 import static com.DietHelper.Product.listOfProducts;
-import static com.DietHelper.Sentences.stringToMethod;
 import static com.DietHelper.Sentences.isThatGoodChoice;
 import static com.DietHelper.Sentences.wrongChoice;
 import static com.DietHelper.UserInputs.getInputFromUser;
@@ -38,15 +37,14 @@ public class Add {
                 "Wzrost: " + patient.getHeight() + "\n" +
                 "Aktywność: " + patient.getActivity() + "\n" +
                 "Wyliczony BMR: " + patient.getBmr() + " kcal" + "\n" +
-                "Zapotrzebowanie kaloryczne: " + patient.getCalories() + " kcal"
-        );
-
+                "Zapotrzebowanie kaloryczne: " + patient.getCalories() + " kcal");
         System.out.println("Przeprowadź wywiad z pacjentem. \n" +
                 "Jeżeli pacjent odpowie tak: wpisz 1, jeżeli nie: wpisz 0, jeżeli nie znasz odpowiedzi wpisz: 2");
         getInputFromUser(patient, Sentences.isPatientNutsAllergicSentence(), 0,2,"setPeanuts");
         getInputFromUser(patient, Sentences.isPatientLactoseIntolerantSentence(), 0,2,"setLactose");
         getInputFromUser(patient, Sentences.chooseDiabeticProblem(), 0,5,"setDiabetes");
 
+        //Patient interview reminder displayed only when the patient has sugar problems
         if (patient.getDiabetes() > 0) {
             System.out.println("Jeżeli pacjent ma stwierdzone problemy z gospodarką insulinową, konieczne jest wypełnienie wywiadu pacjenta " +
                     "w którym zawarte będą dokładne wyniki glukozy oraz insuliny we krwi po obciążeniu glukozą");
@@ -76,7 +74,6 @@ public class Add {
     }
 
         //Go back to doctor menu
-        // DoctorMenu.choice = 0;
         DoctorMenu.doctorFirstMenu();
     }
     public static void newProduct(){
@@ -92,9 +89,11 @@ public class Add {
         getInputFromUser(product,"Podaj liczbę tłuszczu na 100g: ",0,100,"setFat");
         getInputFromUser(product,"Podaj liczbę kalorii na 100g: ",0,900,"setCalories");
         getInputFromUser(product, "Czy produkt jest wegański? Jeżeli tak, wpisz 1. Jeżeli nie, wpisz 0.",0,1,"setVegan");
+        // When product is vegan, automatically it is vegetarian
         if(product.isVegan()){
             product.setVegetarian(true);
         }
+        // If product is not for vegan, then display question about vegetarian
         if(!product.isVegan()) {
             getInputFromUser(product, "Czy produkt jest wegetariański? Jeżeli tak, wpisz 1. Jeżeli nie, wpisz 0.", 0, 1, "setVegetarian");
         }
@@ -102,6 +101,7 @@ public class Add {
         getInputFromUser(product, "Czy produkt może mieć w składzie orzechy? Jeżeli tak, wpisz 1. Jeżeli nie, wpisz 0.",0,1,"hasPeanuts");
         getInputFromUser(product, "Czy produkt ma w składzie gluten? Jeżeli tak, wpisz 1. Jeżeli nie, wpisz 0.",0,1,"hasGluten");
 
+        // Displaying product data
         System.out.println("Utworzono nowy produkt: " + product.getName()+ "\n" +
                 "Ilość białka: " + product.getProtein() + "\n" +
                 "Ilość węglowodanów: " + product.getCarbohydrates()+ "\n" +
@@ -135,7 +135,7 @@ public class Add {
         getInputFromUser(meal, "Jakiego typu to posiłek? Wybierz 1: jeżeli dowolny, 2: jeżeli śniadanie, 3: jeżeli obiad, 4: jeżeli kolacja, 5: jeżeli przekąska",1,5);
         int sizeOfMeal = getInputFromUser("Jeżeli chcesz dodać jeden posiłek w 3 wariantach (mały, średni, duży), wpisz 0. Jeżeli chcesz dodać 1 wariant to wpisz odpowiednio 1 dla małego, 2 dla średniego, 3 dla dużego",0,3);
         tempNumberOfProducts = getInputFromUser("Z ilu produktów składa się posiłek?",1,30);
-        listOfProducts();
+        listOfProducts(); // displaying all products
 
         switch(sizeOfMeal){
             case 1:
@@ -152,10 +152,11 @@ public class Add {
         meal.calculateMeal();
         mealsList.add(meal);
     }
-
     public static void addProductsToMeal(Meal meal) {
         for (int i = 0; i < tempNumberOfProducts; i++) {
+            // Loop do while like try catch
             do {
+                // Providing product identifier
                 System.out.println("Podaj identyfikator produktu: ");
                 if (Variables.scanner.hasNextInt()) {
                     Variables.choice = Variables.scanner.nextInt();
@@ -174,6 +175,7 @@ public class Add {
                 }
             } while (!Variables.goodChoice);
             do {
+                // Providing weight of product
                 System.out.println("Podaj wagę produktu: ");
                 if (Variables.scanner.hasNextInt()) {
                     Variables.choice = Variables.scanner.nextInt();

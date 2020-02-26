@@ -72,7 +72,7 @@ public class DoctorMenu {
     }
 
     private static void dietAdmMenu() {
-        getInputFromUser(dietAdmMenuSentence(),1,9);
+        getInputFromUser(dietAdmMenuSentence(),1,10);
         switch(choice){
             case 1:
                 Add.newProduct();
@@ -105,6 +105,10 @@ public class DoctorMenu {
                 dietAdmMenu();
                 break;
             case 7:
+                Diet.showAllPatientMeals();
+                choice = 0;
+                dietAdmMenu();
+            case 8:
                 Product.listOfProducts();
                 getInputFromUser("Podaj identyfikator produktu, który usunąć",0,productsList.size());
                 if(choice==0){
@@ -114,7 +118,7 @@ public class DoctorMenu {
                 choice =0;
                 dietAdmMenu();
                 break;
-            case 8:
+            case 9:
                 Meal.listOfMeals(mealsList);
                 getInputFromUser("Podaj identyfikator posiłku, który usunąć",0,mealsList.size());
                 if(choice==0){
@@ -124,7 +128,7 @@ public class DoctorMenu {
                 choice = 0;
                 dietAdmMenu();
                 break;
-            case 9:
+            case 10:
                 doctorFirstMenu();
                 break;
         }

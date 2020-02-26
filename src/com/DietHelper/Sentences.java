@@ -38,9 +38,10 @@ public class Sentences {
                 "4. Przeglądaj posiłki \n" +
                 "5. Ustal jadłospis pacjentowi \n" +
                 "6. Przeglądaj jadłospis pacjenta \n" +
-                "7. Usuń produkt \n" +
-                "8. Usuń posiłek \n" +
-                "9. Powrót do poprzedniego menu \n" +
+                "7. Przeglądaj wszystkie posiłki przypisane do pacjenta \n" +
+                "8. Usuń produkt \n" +
+                "9. Usuń posiłek \n" +
+                "10. Powrót do poprzedniego menu \n" +
                 "Wpisz numer: ";}
     public static String typeActivity(){
         return "Podaj aktywność pacjenta: \n"+
@@ -350,11 +351,12 @@ public class Sentences {
         return "Witaj " + actualPatient.getName() + " w panelu pacjenta. \n" +
         "Wpisz numer opcji, którą wybierasz: \n" +
                 "1. Wyświetl jadłospis \n" +
-                "2. Podaj bieżące wyniki glukozy \n" +
-                "3. Podaj bieżące wyniki insuliny \n" +
-                "4. Wyświetl wyniki glukozy \n" +
-                "5. Podaj wagę \n" +
-                "6. Wyświetl statystyki wagi \n" +
-                "7. Powrót do poprzedniego menu";
+                "2. Wyświetl wszystkie przypisane posiłki \n" +
+                "3. Podaj bieżące wyniki glukozy \n" +
+                "4. Podaj bieżące wyniki insuliny \n" +
+                "5. Wyświetl wyniki  \n" +
+                "6. Podaj wagę \n" +
+                "7. Wyświetl statystyki wagi \n" +
+                "8. Powrót do poprzedniego menu";
     }
 }

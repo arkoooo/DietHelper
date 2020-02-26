@@ -9,7 +9,7 @@ import static com.DietHelper.Variables.selectedPatient;
 public class Patient {
      private String name, surname;
      private int id, weight, gender, year, height, activity, calories, bmr, insulin, glycemia, peanuts, lactose, diabetes, vegan, vegetarian, gluten, dietId;
-     List<Integer> dislikedProducts = new LinkedList<>();
+     List<Product> dislikedProducts = new LinkedList<>();
      HashMap<Double, String> weightResults = new HashMap<>();
 
     public Patient() {
