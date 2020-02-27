@@ -1,13 +1,11 @@
 package com.DietHelper;
 
-import javax.swing.*;
-
 import static com.DietHelper.Sentences.*;
 
 public class Main {
 
     public static void main(String[] args) {
-                Examples.createExamplePatients();
+                Examples.createExamples();
                 mainMenu();
     }
 
@@ -26,7 +24,7 @@ public class Main {
                     wrongChoice();
                 }
                 Variables.scanner.nextLine();
-            }while(!isThatGoodChoice(Variables.choice,1,3) && !Variables.goodChoice); //Menu will be displayed until user type correct input
+            }while(!UserInputs.isThatGoodChoice(Variables.choice,1,3) && !Variables.goodChoice); //Menu will be displayed until user type correct input
 
 
 

@@ -5,6 +5,11 @@ import static com.DietHelper.TypeOfMeal.*;
 import static com.DietHelper.Variables.*;
 
 public class Examples {
+    static void createExamples(){
+        createExamplePatients();
+        createExampleProducts();
+        createExampleMeals();
+    }
     static void createExamplePatients() {
         Patient patient = new Patient();
         patient.setId(1);
@@ -15,6 +20,7 @@ public class Examples {
         patient.setHeight(185);
         patient.setYear(1994);
         patient.setActivity(2);
+        patient.setDiabetes(1);
         patient.calculateBmr();
         patient.calculateTotalMetabolism();
 
@@ -34,6 +40,241 @@ public class Examples {
         patientList.add(patient2);
         selectedPatient = 1;
 
+
+
+
+    }
+    public static void createExampleMeals(){
+        Meal meal = new Meal();
+        Meal meal2 = new Meal();
+        Meal meal3 = new Meal();
+        Meal meal4 = new Meal();
+        Meal meal5 = new Meal();
+        Meal meal6 = new Meal();
+        Meal meal7 = new Meal();
+        Meal meal8 = new Meal();
+        Meal meal9 = new Meal();
+        Meal meal10 = new Meal();
+        Meal meal11 = new Meal();
+        Meal meal12 = new Meal();
+        Meal meal13 = new Meal();
+        Meal meal14 = new Meal();
+        Meal meal15 = new Meal();
+        Meal meal16 = new Meal();
+        Meal meal17 = new Meal();
+        Meal meal18 = new Meal();
+
+        meal.setName("Omlet");
+        meal.setTypeOfMeal(ANY);
+        meal.setSizeOfMeal(SMALL);
+        meal.listOfProductsInMeal.add(productsList.get(10));
+        meal.weightOfProducts.add(180);
+        meal.listOfProductsInMeal.add(productsList.get(9));
+        meal.weightOfProducts.add(50);
+        meal.listOfProductsInMeal.add(productsList.get(15));
+        meal.weightOfProducts.add(20);
+        meal.calculateMeal();
+        mealsList.add(meal);
+
+        meal2.setName("Omlet");
+        meal2.setTypeOfMeal(ANY);
+        meal2.setSizeOfMeal(MEDIUM);
+        meal2.listOfProductsInMeal.add(productsList.get(10));
+        meal2.weightOfProducts.add(240);
+        meal2.listOfProductsInMeal.add(productsList.get(9));
+        meal2.weightOfProducts.add(75);
+        meal2.listOfProductsInMeal.add(productsList.get(15));
+        meal2.weightOfProducts.add(30);
+        meal2.calculateMeal();
+        mealsList.add(meal2);
+
+        meal3.setName("Omlet");
+        meal3.setTypeOfMeal(ANY);
+        meal3.setSizeOfMeal(LARGE);
+        meal3.listOfProductsInMeal.add(productsList.get(10));
+        meal3.weightOfProducts.add(300);
+        meal3.listOfProductsInMeal.add(productsList.get(9));
+        meal3.weightOfProducts.add(100);
+        meal3.listOfProductsInMeal.add(productsList.get(15));
+        meal3.weightOfProducts.add(40);
+        meal3.calculateMeal();
+        mealsList.add(meal3);
+
+        meal4.setName("Płatki");
+        meal4.setTypeOfMeal(BREAKFAST);
+        meal4.setSizeOfMeal(SMALL);
+        meal4.listOfProductsInMeal.add(productsList.get(7));
+        meal4.weightOfProducts.add(50);
+        meal4.listOfProductsInMeal.add(productsList.get(12));
+        meal4.weightOfProducts.add(120);
+        meal4.listOfProductsInMeal.add(productsList.get(15));
+        meal4.weightOfProducts.add(20);
+        meal4.calculateMeal();
+        mealsList.add(meal4);
+
+        meal5.setName("Płatki");
+        meal5.setTypeOfMeal(BREAKFAST);
+        meal5.setSizeOfMeal(MEDIUM);
+        meal5.listOfProductsInMeal.add(productsList.get(7));
+        meal5.weightOfProducts.add(75);
+        meal5.listOfProductsInMeal.add(productsList.get(12));
+        meal5.weightOfProducts.add(120);
+        meal5.listOfProductsInMeal.add(productsList.get(15));
+        meal5.weightOfProducts.add(30);
+        meal5.calculateMeal();
+        mealsList.add(meal5);
+
+        meal6.setName("Płatki");
+        meal6.setTypeOfMeal(BREAKFAST);
+        meal6.setSizeOfMeal(LARGE);
+        meal6.listOfProductsInMeal.add(productsList.get(7));
+        meal6.weightOfProducts.add(100);
+        meal6.listOfProductsInMeal.add(productsList.get(12));
+        meal6.weightOfProducts.add(120);
+        meal6.listOfProductsInMeal.add(productsList.get(15));
+        meal6.weightOfProducts.add(40);
+        meal6.calculateMeal();
+        mealsList.add(meal6);
+
+        meal7.setName("Sałatka makaronowa");
+        meal7.setTypeOfMeal(SUPPER);
+        meal7.setSizeOfMeal(SMALL);
+        meal7.listOfProductsInMeal.add(productsList.get(8));
+        meal7.weightOfProducts.add(50);
+        meal7.listOfProductsInMeal.add(productsList.get(21));
+        meal7.weightOfProducts.add(65);
+        meal7.calculateMeal();
+        mealsList.add(meal7);
+
+        meal8.setName("Sałatka makaronowa");
+        meal8.setTypeOfMeal(SUPPER);
+        meal8.setSizeOfMeal(MEDIUM);
+        meal8.listOfProductsInMeal.add(productsList.get(8));
+        meal8.weightOfProducts.add(75);
+        meal8.listOfProductsInMeal.add(productsList.get(21));
+        meal8.weightOfProducts.add(130);
+        meal8.calculateMeal();
+        mealsList.add(meal8);
+
+        meal9.setName("Sałatka makaronowa");
+        meal9.setTypeOfMeal(SUPPER);
+        meal9.setSizeOfMeal(LARGE);
+        meal9.listOfProductsInMeal.add(productsList.get(8));
+        meal9.weightOfProducts.add(100);
+        meal9.listOfProductsInMeal.add(productsList.get(21));
+        meal9.weightOfProducts.add(185);
+        meal9.calculateMeal();
+        mealsList.add(meal9);
+
+        meal10.setName("Ryż z warzywami i serem");
+        meal10.setTypeOfMeal(DINNER);
+        meal10.setSizeOfMeal(SMALL);
+        meal10.listOfProductsInMeal.add(productsList.get(1));
+        meal10.weightOfProducts.add(50);
+        meal10.listOfProductsInMeal.add(productsList.get(18));
+        meal10.weightOfProducts.add(200);
+        meal10.listOfProductsInMeal.add(productsList.get(20));
+        meal10.weightOfProducts.add(50);
+        meal10.calculateMeal();
+        mealsList.add(meal10);
+
+        meal11.setName("Ryż z warzywami i serem");
+        meal11.setTypeOfMeal(DINNER);
+        meal11.setSizeOfMeal(MEDIUM);
+        meal11.listOfProductsInMeal.add(productsList.get(1));
+        meal11.weightOfProducts.add(75);
+        meal11.listOfProductsInMeal.add(productsList.get(18));
+        meal11.weightOfProducts.add(300);
+        meal11.listOfProductsInMeal.add(productsList.get(20));
+        meal11.weightOfProducts.add(100);
+        meal11.calculateMeal();
+        mealsList.add(meal11);
+
+        meal12.setName("Ryż z warzywami i serem");
+        meal12.setTypeOfMeal(DINNER);
+        meal12.setSizeOfMeal(LARGE);
+        meal12.listOfProductsInMeal.add(productsList.get(1));
+        meal12.weightOfProducts.add(100);
+        meal12.listOfProductsInMeal.add(productsList.get(18));
+        meal12.weightOfProducts.add(400);
+        meal12.listOfProductsInMeal.add(productsList.get(20));
+        meal12.weightOfProducts.add(100);
+        meal12.calculateMeal();
+        mealsList.add(meal12);
+
+        meal13.setName("Ryż z tuńczykiem");
+        meal13.setTypeOfMeal(BREAKFAST);
+        meal13.setSizeOfMeal(SMALL);
+        meal13.listOfProductsInMeal.add(productsList.get(1));
+        meal13.weightOfProducts.add(50);
+        meal13.listOfProductsInMeal.add(productsList.get(6));
+        meal13.weightOfProducts.add(65);
+        meal13.listOfProductsInMeal.add(productsList.get(18));
+        meal13.weightOfProducts.add(100);
+        meal13.calculateMeal();
+        mealsList.add(meal13);
+
+        meal14.setName("Ryż z tuńczykiem");
+        meal14.setTypeOfMeal(BREAKFAST);
+        meal14.setSizeOfMeal(MEDIUM);
+        meal14.listOfProductsInMeal.add(productsList.get(1));
+        meal14.weightOfProducts.add(75);
+        meal14.listOfProductsInMeal.add(productsList.get(6));
+        meal14.weightOfProducts.add(130);
+        meal14.listOfProductsInMeal.add(productsList.get(18));
+        meal14.weightOfProducts.add(200);
+        meal14.calculateMeal();
+        mealsList.add(meal14);
+
+        meal15.setName("Ryż z tuńczykiem");
+        meal15.setTypeOfMeal(BREAKFAST);
+        meal15.setSizeOfMeal(LARGE);
+        meal15.listOfProductsInMeal.add(productsList.get(1));
+        meal15.weightOfProducts.add(100);
+        meal15.listOfProductsInMeal.add(productsList.get(6));
+        meal15.weightOfProducts.add(130);
+        meal15.listOfProductsInMeal.add(productsList.get(18));
+        meal15.weightOfProducts.add(300);
+        meal15.calculateMeal();
+        mealsList.add(meal15);
+
+        meal16.setName("Ryż z kurczakiem");
+        meal16.setTypeOfMeal(DINNER);
+        meal16.setSizeOfMeal(SMALL);
+        meal16.listOfProductsInMeal.add(productsList.get(1));
+        meal16.weightOfProducts.add(50);
+        meal16.listOfProductsInMeal.add(productsList.get(2));
+        meal16.weightOfProducts.add(100);
+        meal16.listOfProductsInMeal.add(productsList.get(18));
+        meal16.weightOfProducts.add(100);
+        meal16.calculateMeal();
+        mealsList.add(meal16);
+
+        meal17.setName("Ryż z kurczakiem");
+        meal17.setTypeOfMeal(DINNER);
+        meal17.setSizeOfMeal(MEDIUM);
+        meal17.listOfProductsInMeal.add(productsList.get(1));
+        meal17.weightOfProducts.add(75);
+        meal17.listOfProductsInMeal.add(productsList.get(2));
+        meal17.weightOfProducts.add(200);
+        meal17.listOfProductsInMeal.add(productsList.get(18));
+        meal17.weightOfProducts.add(200);
+        meal17.calculateMeal();
+        mealsList.add(meal17);
+
+        meal18.setName("Ryż z kurczakiem");
+        meal18.setTypeOfMeal(DINNER);
+        meal18.setSizeOfMeal(LARGE);
+        meal18.listOfProductsInMeal.add(productsList.get(1));
+        meal18.weightOfProducts.add(100);
+        meal18.listOfProductsInMeal.add(productsList.get(2));
+        meal18.weightOfProducts.add(300);
+        meal18.listOfProductsInMeal.add(productsList.get(18));
+        meal18.weightOfProducts.add(300);
+        meal18.calculateMeal();
+        mealsList.add(meal18);
+    }
+    public static void createExampleProducts(){
         Product product = new Product();
         Product product2 = new Product();
         Product product3 = new Product();
@@ -312,242 +553,5 @@ public class Examples {
         productsList.add(product19);
         productsList.add(product20);
         productsList.add(product21);
-
-        Meal meal = new Meal();
-        Meal meal2 = new Meal();
-        Meal meal3 = new Meal();
-        Meal meal4 = new Meal();
-        Meal meal5 = new Meal();
-        Meal meal6 = new Meal();
-        Meal meal7 = new Meal();
-        Meal meal8 = new Meal();
-        Meal meal9 = new Meal();
-        Meal meal10 = new Meal();
-        Meal meal11 = new Meal();
-        Meal meal12 = new Meal();
-        Meal meal13 = new Meal();
-        Meal meal14 = new Meal();
-        Meal meal15 = new Meal();
-        Meal meal16 = new Meal();
-        Meal meal17 = new Meal();
-        Meal meal18 = new Meal();
-
-        meal.setName("Omlet");
-        meal.setTypeOfMeal(ANY);
-        meal.setSizeOfMeal(SMALL);
-        meal.listOfProductsInMeal.add(productsList.get(10));
-        meal.weightOfProducts.add(180);
-        meal.listOfProductsInMeal.add(productsList.get(9));
-        meal.weightOfProducts.add(50);
-        meal.listOfProductsInMeal.add(productsList.get(15));
-        meal.weightOfProducts.add(20);
-        meal.calculateMeal();
-        mealsList.add(meal);
-
-        meal2.setName("Omlet");
-        meal2.setTypeOfMeal(ANY);
-        meal2.setSizeOfMeal(MEDIUM);
-        meal2.listOfProductsInMeal.add(productsList.get(10));
-        meal2.weightOfProducts.add(240);
-        meal2.listOfProductsInMeal.add(productsList.get(9));
-        meal2.weightOfProducts.add(75);
-        meal2.listOfProductsInMeal.add(productsList.get(15));
-        meal2.weightOfProducts.add(30);
-        meal2.calculateMeal();
-        mealsList.add(meal2);
-
-        meal3.setName("Omlet");
-        meal3.setTypeOfMeal(ANY);
-        meal3.setSizeOfMeal(LARGE);
-        meal3.listOfProductsInMeal.add(productsList.get(10));
-        meal3.weightOfProducts.add(300);
-        meal3.listOfProductsInMeal.add(productsList.get(9));
-        meal3.weightOfProducts.add(100);
-        meal3.listOfProductsInMeal.add(productsList.get(15));
-        meal3.weightOfProducts.add(40);
-        meal3.calculateMeal();
-        mealsList.add(meal3);
-
-        meal4.setName("Płatki");
-        meal4.setTypeOfMeal(BREAKFAST);
-        meal4.setSizeOfMeal(SMALL);
-        meal4.listOfProductsInMeal.add(productsList.get(7));
-        meal4.weightOfProducts.add(50);
-        meal4.listOfProductsInMeal.add(productsList.get(12));
-        meal4.weightOfProducts.add(120);
-        meal4.listOfProductsInMeal.add(productsList.get(15));
-        meal4.weightOfProducts.add(20);
-        meal4.calculateMeal();
-        mealsList.add(meal4);
-
-        meal5.setName("Płatki");
-        meal5.setTypeOfMeal(BREAKFAST);
-        meal5.setSizeOfMeal(MEDIUM);
-        meal5.listOfProductsInMeal.add(productsList.get(7));
-        meal5.weightOfProducts.add(75);
-        meal5.listOfProductsInMeal.add(productsList.get(12));
-        meal5.weightOfProducts.add(120);
-        meal5.listOfProductsInMeal.add(productsList.get(15));
-        meal5.weightOfProducts.add(30);
-        meal5.calculateMeal();
-        mealsList.add(meal5);
-
-        meal6.setName("Płatki");
-        meal6.setTypeOfMeal(BREAKFAST);
-        meal6.setSizeOfMeal(LARGE);
-        meal6.listOfProductsInMeal.add(productsList.get(7));
-        meal6.weightOfProducts.add(100);
-        meal6.listOfProductsInMeal.add(productsList.get(12));
-        meal6.weightOfProducts.add(120);
-        meal6.listOfProductsInMeal.add(productsList.get(15));
-        meal6.weightOfProducts.add(40);
-        meal6.calculateMeal();
-        mealsList.add(meal6);
-
-        meal7.setName("Sałatka makaronowa");
-        meal7.setTypeOfMeal(SUPPER);
-        meal7.setSizeOfMeal(SMALL);
-        meal7.listOfProductsInMeal.add(productsList.get(8));
-        meal7.weightOfProducts.add(50);
-        meal7.listOfProductsInMeal.add(productsList.get(21));
-        meal7.weightOfProducts.add(65);
-        meal7.calculateMeal();
-        mealsList.add(meal7);
-
-        meal8.setName("Sałatka makaronowa");
-        meal8.setTypeOfMeal(SUPPER);
-        meal8.setSizeOfMeal(MEDIUM);
-        meal8.listOfProductsInMeal.add(productsList.get(8));
-        meal8.weightOfProducts.add(75);
-        meal8.listOfProductsInMeal.add(productsList.get(21));
-        meal8.weightOfProducts.add(130);
-        meal8.calculateMeal();
-        mealsList.add(meal8);
-
-        meal9.setName("Sałatka makaronowa");
-        meal9.setTypeOfMeal(SUPPER);
-        meal9.setSizeOfMeal(LARGE);
-        meal9.listOfProductsInMeal.add(productsList.get(8));
-        meal9.weightOfProducts.add(100);
-        meal9.listOfProductsInMeal.add(productsList.get(21));
-        meal9.weightOfProducts.add(185);
-        meal9.calculateMeal();
-        mealsList.add(meal9);
-
-        meal10.setName("Ryż z warzywami i serem");
-        meal10.setTypeOfMeal(DINNER);
-        meal10.setSizeOfMeal(SMALL);
-        meal10.listOfProductsInMeal.add(productsList.get(1));
-        meal10.weightOfProducts.add(50);
-        meal10.listOfProductsInMeal.add(productsList.get(18));
-        meal10.weightOfProducts.add(200);
-        meal10.listOfProductsInMeal.add(productsList.get(20));
-        meal10.weightOfProducts.add(50);
-        meal10.calculateMeal();
-        mealsList.add(meal10);
-
-        meal11.setName("Ryż z warzywami i serem");
-        meal11.setTypeOfMeal(DINNER);
-        meal11.setSizeOfMeal(MEDIUM);
-        meal11.listOfProductsInMeal.add(productsList.get(1));
-        meal11.weightOfProducts.add(75);
-        meal11.listOfProductsInMeal.add(productsList.get(18));
-        meal11.weightOfProducts.add(300);
-        meal11.listOfProductsInMeal.add(productsList.get(20));
-        meal11.weightOfProducts.add(100);
-        meal11.calculateMeal();
-        mealsList.add(meal11);
-
-        meal12.setName("Ryż z warzywami i serem");
-        meal12.setTypeOfMeal(DINNER);
-        meal12.setSizeOfMeal(LARGE);
-        meal12.listOfProductsInMeal.add(productsList.get(1));
-        meal12.weightOfProducts.add(100);
-        meal12.listOfProductsInMeal.add(productsList.get(18));
-        meal12.weightOfProducts.add(400);
-        meal12.listOfProductsInMeal.add(productsList.get(20));
-        meal12.weightOfProducts.add(100);
-        meal12.calculateMeal();
-        mealsList.add(meal12);
-
-        meal13.setName("Ryż z tuńczykiem");
-        meal13.setTypeOfMeal(BREAKFAST);
-        meal13.setSizeOfMeal(SMALL);
-        meal13.listOfProductsInMeal.add(productsList.get(1));
-        meal13.weightOfProducts.add(50);
-        meal13.listOfProductsInMeal.add(productsList.get(6));
-        meal13.weightOfProducts.add(65);
-        meal13.listOfProductsInMeal.add(productsList.get(18));
-        meal13.weightOfProducts.add(100);
-        meal13.calculateMeal();
-        mealsList.add(meal13);
-
-        meal14.setName("Ryż z tuńczykiem");
-        meal14.setTypeOfMeal(BREAKFAST);
-        meal14.setSizeOfMeal(MEDIUM);
-        meal14.listOfProductsInMeal.add(productsList.get(1));
-        meal14.weightOfProducts.add(75);
-        meal14.listOfProductsInMeal.add(productsList.get(6));
-        meal14.weightOfProducts.add(130);
-        meal14.listOfProductsInMeal.add(productsList.get(18));
-        meal14.weightOfProducts.add(200);
-        meal14.calculateMeal();
-        mealsList.add(meal14);
-
-        meal15.setName("Ryż z tuńczykiem");
-        meal15.setTypeOfMeal(BREAKFAST);
-        meal15.setSizeOfMeal(LARGE);
-        meal15.listOfProductsInMeal.add(productsList.get(1));
-        meal15.weightOfProducts.add(100);
-        meal15.listOfProductsInMeal.add(productsList.get(6));
-        meal15.weightOfProducts.add(130);
-        meal15.listOfProductsInMeal.add(productsList.get(18));
-        meal15.weightOfProducts.add(300);
-        meal15.calculateMeal();
-        mealsList.add(meal15);
-
-        meal16.setName("Ryż z kurczakiem");
-        meal16.setTypeOfMeal(DINNER);
-        meal16.setSizeOfMeal(SMALL);
-        meal16.listOfProductsInMeal.add(productsList.get(1));
-        meal16.weightOfProducts.add(50);
-        meal16.listOfProductsInMeal.add(productsList.get(2));
-        meal16.weightOfProducts.add(100);
-        meal16.listOfProductsInMeal.add(productsList.get(18));
-        meal16.weightOfProducts.add(100);
-        meal16.calculateMeal();
-        mealsList.add(meal16);
-
-        meal17.setName("Ryż z kurczakiem");
-        meal17.setTypeOfMeal(DINNER);
-        meal17.setSizeOfMeal(MEDIUM);
-        meal17.listOfProductsInMeal.add(productsList.get(1));
-        meal17.weightOfProducts.add(75);
-        meal17.listOfProductsInMeal.add(productsList.get(2));
-        meal17.weightOfProducts.add(200);
-        meal17.listOfProductsInMeal.add(productsList.get(18));
-        meal17.weightOfProducts.add(200);
-        meal17.calculateMeal();
-        mealsList.add(meal17);
-
-        meal18.setName("Ryż z kurczakiem");
-        meal18.setTypeOfMeal(DINNER);
-        meal18.setSizeOfMeal(LARGE);
-        meal18.listOfProductsInMeal.add(productsList.get(1));
-        meal18.weightOfProducts.add(100);
-        meal18.listOfProductsInMeal.add(productsList.get(2));
-        meal18.weightOfProducts.add(300);
-        meal18.listOfProductsInMeal.add(productsList.get(18));
-        meal18.weightOfProducts.add(300);
-        meal18.calculateMeal();
-        mealsList.add(meal18);
-
-
-
-
-
-
-
-
     }
 }

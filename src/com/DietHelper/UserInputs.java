@@ -2,7 +2,6 @@ package com.DietHelper;
 
 import static com.DietHelper.Sentences.*;
 import static com.DietHelper.Variables.choice;
-import static com.DietHelper.Variables.weight;
 
 public class UserInputs {
     public static int getInputFromUser(String sentence, int lowRange, int highRange){
@@ -131,4 +130,19 @@ public class UserInputs {
         return choice;
     }
 
+    public static boolean isThatGoodChoice(int number, int lowRange, int highRange){
+        if (number >= lowRange && number <= highRange){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public static boolean isThatGoodChoice(double number, double lowRange, double highRange){
+        if (number >= lowRange && number <= highRange){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }

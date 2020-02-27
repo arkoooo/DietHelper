@@ -51,20 +51,7 @@ public class Sentences {
                 "4 - wysoka aktywność, praca fizyczna i 3-4 treningi w tygodniu \n" +
                 "5 - bardzo wysoka aktywność, sportowcy zawodowi, osoby trenujące codzienie";
     }
-    public static boolean isThatGoodChoice(int number, int lowRange, int highRange){
-        if (number >= lowRange && number <= highRange){
-            return true;
-        }else{
-            return false;
-        }
-    }
-    public static boolean isThatGoodChoice(double number, double lowRange, double highRange){
-        if (number >= lowRange && number <= highRange){
-            return true;
-        }else{
-            return false;
-        }
-    }
+
     static String patientResultsMenu() {
         return "1. Wybierz pacjenta \n" +
                 "2. Glukoza \n" +

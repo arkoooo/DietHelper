@@ -1,7 +1,7 @@
 package com.DietHelper;
 
 import static com.DietHelper.Product.listOfProducts;
-import static com.DietHelper.Sentences.isThatGoodChoice;
+import static com.DietHelper.UserInputs.isThatGoodChoice;
 import static com.DietHelper.Sentences.wrongChoice;
 import static com.DietHelper.UserInputs.getInputFromUser;
 import static com.DietHelper.Variables.*;

@@ -12,6 +12,9 @@ import static com.DietHelper.Variables.*;
 
 public class Diet {
     private int calories, numberOfMeals, patientID, caloriesPerMeal;
+
+
+
     private List<Meal> allMeals = new LinkedList<>();
     private static List<Meal> day1 = new LinkedList<>();
     private static List<Meal> day2 = new LinkedList<>();
@@ -56,6 +59,14 @@ public class Diet {
         this.caloriesPerMeal = caloriesPerMeal;
     }
 
+    public List<Meal> getAllMeals() {
+        return allMeals;
+    }
+
+    public void setAllMeals(List<Meal> allMeals) {
+        this.allMeals = allMeals;
+    }
+
     public static void createDiet() {
         Patient actualPatient = patientList.get(selectedPatient-1);
         Diet diet = new Diet();
@@ -71,8 +82,10 @@ public class Diet {
 
         //Calculation of calories for one meal, assuming that everyone will have similar calories
         diet.setCaloriesPerMeal(diet.getCalories()/diet.getNumberOfMeals());
+
         dietsList.add(diet);
         diet.getMealsToDiet();
+
         diet.arrangeMeals(day1);
         diet.arrangeMeals(day2);
         diet.arrangeMeals(day3);
@@ -80,7 +93,9 @@ public class Diet {
         diet.arrangeMeals(day5);
         diet.arrangeMeals(day6);
         diet.arrangeMeals(day7);
+
     }
+
     public static void getDislikedProducts(){
         Patient actualPatient = patientList.get(selectedPatient-1);
         listOfProducts();
@@ -115,7 +130,7 @@ public class Diet {
                 // If user type 0, then adding disliked products will break.
                 if(choice == 0){
                     break;
-                }if (isThatGoodChoice(Variables.choice, 1, productsList.size())) {
+                }if (UserInputs.isThatGoodChoice(Variables.choice, 1, productsList.size())) {
                     actualPatient.dislikedProducts.add(productsList.get(choice));
                     Variables.goodChoice = true;
                 } else {
@@ -132,7 +147,7 @@ public class Diet {
     public void getMealsToDiet() {
         Patient actualPatient = patientList.get(selectedPatient - 1);
         Diet actualPatientDiet = dietsList.get(actualPatient.getDietId() - 1);
-        boolean canAddMeal = false;
+        boolean canAddMeal;
 
         for (int i = 0; i < mealsList.size(); i++) {
             // Check if the meal's calories match with accepted calories per meal. Margin of fault is 100 calories.
@@ -149,17 +164,17 @@ public class Diet {
             }
             // Checking patient problems/recommendations
             if(actualPatient.getVegan() == 1){
-                if(mealsList.get(i).isVegan()){
+                if(!mealsList.get(i).isVegan()){
                     canAddMeal = false;
                 }
             }
             if(actualPatient.getVegetarian() == 1){
-                if(mealsList.get(i).isVegetarian()){
+                if(!mealsList.get(i).isVegetarian()){
                     canAddMeal = false;
                 }
             }
             if(actualPatient.getDiabetes() > 0){
-                if(mealsList.get(i).isForDiabetic()){
+                if(!mealsList.get(i).isForDiabetic()){
                     canAddMeal = false;
                 }
             }
@@ -247,11 +262,18 @@ public class Diet {
 
         public static void showAllPatientMeals(){
             Patient actualPatient = patientList.get(selectedPatient-1);
-            Diet actualPatientDiet = dietsList.get(actualPatient.getDietId()-1);
-
-            if(!actualPatientDiet.allMeals.isEmpty()) {
-                listOfMeals(actualPatientDiet.allMeals);
+            if(actualPatient.getDietId()>0) {
+                Diet actualPatientDiet = dietsList.get(actualPatient.getDietId() - 1);
+                if(!actualPatientDiet.allMeals.isEmpty()) {
+                    listOfMeals(actualPatientDiet.allMeals);
+                }
+            }else{
+                System.out.println("Brak diety");
             }
+
+
+
+
         }
 
 

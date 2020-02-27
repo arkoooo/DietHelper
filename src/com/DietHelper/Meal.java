@@ -1,12 +1,8 @@
 package com.DietHelper;
-
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-
 import static com.DietHelper.Sentences.changeSizeOfMeal;
 import static com.DietHelper.Sentences.changeTypeOfMeal;
-import static com.DietHelper.Variables.*;
 
 public class Meal {
     private String name;
