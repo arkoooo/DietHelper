@@ -1,27 +1,15 @@
 package com.DietHelper;
 
+import com.sunny.plugin.MockitoGenPlugin;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class UserInputsTest {
 
-
-    @Test
-    void getInputFromUser() {
-    }
-
-    @Test
-    void testGetInputFromUser() {
-    }
-
-    @Test
-    void testGetInputFromUser1() {
-    }
 
     @Test
     void isThatGoodChoice() {
@@ -42,4 +30,5 @@ class UserInputsTest {
         assertTrue(goodResult);
         assertFalse(badResult);
     }
+
 }

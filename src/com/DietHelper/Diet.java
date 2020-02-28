@@ -67,6 +67,62 @@ public class Diet {
         this.allMeals = allMeals;
     }
 
+    public  List<Meal> getDay1() {
+        return day1;
+    }
+
+    public static void setDay1(List<Meal> day1) {
+        Diet.day1 = day1;
+    }
+
+    public List<Meal> getDay2() {
+        return day2;
+    }
+
+    public static void setDay2(List<Meal> day2) {
+        Diet.day2 = day2;
+    }
+
+    public  List<Meal> getDay3() {
+        return day3;
+    }
+
+    public static void setDay3(List<Meal> day3) {
+        Diet.day3 = day3;
+    }
+
+    public  List<Meal> getDay4() {
+        return day4;
+    }
+
+    public static void setDay4(List<Meal> day4) {
+        Diet.day4 = day4;
+    }
+
+    public  List<Meal> getDay5() {
+        return day5;
+    }
+
+    public static void setDay5(List<Meal> day5) {
+        Diet.day5 = day5;
+    }
+
+    public  List<Meal> getDay6() {
+        return day6;
+    }
+
+    public static void setDay6(List<Meal> day6) {
+        Diet.day6 = day6;
+    }
+
+    public  List<Meal> getDay7() {
+        return day7;
+    }
+
+    public static void setDay7(List<Meal> day7) {
+        Diet.day7 = day7;
+    }
+
     public static void createDiet() {
         Patient actualPatient = patientList.get(selectedPatient-1);
         Diet diet = new Diet();
@@ -86,14 +142,17 @@ public class Diet {
         dietsList.add(diet);
         diet.getMealsToDiet();
 
-        diet.arrangeMeals(day1);
-        diet.arrangeMeals(day2);
-        diet.arrangeMeals(day3);
-        diet.arrangeMeals(day4);
-        diet.arrangeMeals(day5);
-        diet.arrangeMeals(day6);
-        diet.arrangeMeals(day7);
+        arrangeWholeDiet(diet);
+    }
 
+    public static void arrangeWholeDiet(Diet diet) {
+        diet.arrangeDay(day1);
+        diet.arrangeDay(day2);
+        diet.arrangeDay(day3);
+        diet.arrangeDay(day4);
+        diet.arrangeDay(day5);
+        diet.arrangeDay(day6);
+        diet.arrangeDay(day7);
     }
 
     public static void getDislikedProducts(){
@@ -198,7 +257,7 @@ public class Diet {
             }
         }
     }
-    public void arrangeMeals(List<Meal> day){
+    public void arrangeDay(List<Meal> day){
         Patient actualPatient = patientList.get(selectedPatient - 1);
         Diet actualPatientDiet = dietsList.get(actualPatient.getDietId() - 1);
         Random generator = new Random();
@@ -206,7 +265,6 @@ public class Diet {
         // Arranging breakfast
         for (int i = 0; i < actualPatientDiet.allMeals.size(); i++) {
             if(actualPatientDiet.allMeals.get(i).getTypeOfMeal() == TypeOfMeal.BREAKFAST){
-                System.out.println("Sprawdzam" + actualPatientDiet.allMeals.get(i).getName() + actualPatientDiet.allMeals.get(i).getTypeOfMeal());
                 day.add(actualPatientDiet.allMeals.get(i));
                 break;
             }

@@ -4,7 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 
-import static com.DietHelper.Meal.listOfMeals;
+import static com.DietHelper.Diet.arrangeWholeDiet;
 import static com.DietHelper.Variables.*;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -80,5 +80,13 @@ class DietTest {
 
     @Test
     void arrangeMeals() {
+        //arrange
+        selectedPatient = 1;
+        veganPatientDiet.getMealsToDiet();
+        arrangeWholeDiet(veganPatientDiet);
+        //act
+        int result = veganPatientDiet.getDay1().size();
+        //assert
+        assertEquals(veganPatientDiet.getNumberOfMeals(),result);
     }
 }
